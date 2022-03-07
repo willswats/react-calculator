@@ -1,3 +1,5 @@
+import { ACTIONS } from '../Calculator';
+
 const CalculatorButton = ({ className, dispatch, type, button }) => {
   return (
     <button
@@ -5,7 +7,7 @@ const CalculatorButton = ({ className, dispatch, type, button }) => {
       onClick={() => dispatch({ type, payload: { button } })}
     >
       {button}
-</button>
+    </button>
   );
 };
 
