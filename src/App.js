@@ -29,7 +29,7 @@ const initialState = {
 
 const reducer = (state, { type, payload }) => {
   const selectedButton = payload.button;
-  const currentCalculation = `${state.currentOperand} ${state.operation} ${state.previousOperand}`;
+  const currentCalculation = `${state.previousOperand} ${state.operation} ${state.currentOperand}`;
 
   switch (type) {
     case ACTIONS.ADD_DIGIT:
