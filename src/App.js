@@ -1,10 +1,15 @@
 import { useReducer, useState } from 'react';
 
-import ToggleButton from './components/ToggleButton/ToggleButton';
+import ToggleButton from './components/ToggleModeButton/ToggleModeButton';
 import History from './components/History/History';
 import Calculator from './components/Calculator/Calculator';
 
 import evaluate from './helpers/evaluate';
+
+export const MODES = {
+  CALCULATOR: 'calculator',
+  HISTORY: 'history',
+};
 
 export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
@@ -140,16 +145,15 @@ const reducer = (state, { type, payload }) => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [historyVisibility, setHistoryVisibility] = useState(false);
+  const [mode, setMode] = useState(MODES.CALCULATOR);
 
   return (
     <>
-      <ToggleButton
-        visible={historyVisibility}
-        setVisible={setHistoryVisibility}
-      />
-      {historyVisibility && <History state={state} />}
-      {!historyVisibility && <Calculator state={state} dispatch={dispatch} />}
+      <ToggleButton mode={mode} setMode={setMode} />
+      {mode === MODES.HISTORY && <History state={state} />}
+      {mode === MODES.CALCULATOR && (
+        <Calculator state={state} dispatch={dispatch} />
+      )}
     </>
   );
 };
