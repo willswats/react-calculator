@@ -4,8 +4,8 @@ const History = ({ state }) => {
   return (
     <>
       <ul className={classes.history}>
-        {state.history.map((calculation, index) => (
-          <li className={classes['history-item']} key={index}>
+        {state.history.map(({ calculation, key }) => (
+          <li className={classes['history-item']} key={key}>
             {calculation}
           </li>
         ))}

@@ -1,6 +1,7 @@
 import './App.css';
 
 import { useReducer, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import ToggleModeButton from './components/ToggleModeButton/ToggleModeButton';
 import History from './components/History/History';
@@ -127,13 +128,16 @@ const reducer = (state, { type, payload }) => {
         return state;
       else {
         const evaluation = evaluate(state);
-        const currentCalculation = `${formatOperand(state.previousOperand)} ${
+        const operands = `${formatOperand(state.previousOperand)} ${
           state.operation
         } ${formatOperand(state.currentOperand)}`;
         return {
           ...state,
           history: [
-            `${currentCalculation} = ${formatOperand(evaluation)}`,
+            {
+              key: uuid(),
+              calculation: `${operands} = ${formatOperand(evaluation)}`,
+            },
             ...state.history,
           ],
           currentOperand: evaluation,
