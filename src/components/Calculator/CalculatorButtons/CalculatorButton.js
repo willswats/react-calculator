@@ -1,5 +1,3 @@
-import { ACTIONS } from '../Calculator';
-
 const CalculatorButton = ({ className, dispatch, type, button }) => {
   return (
     <button

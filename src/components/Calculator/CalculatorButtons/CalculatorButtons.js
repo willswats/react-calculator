@@ -1,6 +1,6 @@
 import classes from './CalculatorButtons.module.css';
 
-import { ACTIONS } from '../Calculator';
+import { ACTIONS } from '../../../App';
 
 import CalculatorButton from './CalculatorButton';
 
