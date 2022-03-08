@@ -7,6 +7,7 @@ import History from './components/History/History';
 import Calculator from './components/Calculator/Calculator';
 
 import evaluate from './helpers/evaluate';
+import { formatOperand } from './helpers/formatOperand';
 
 export const MODES = {
   CALCULATOR: 'calculator',
@@ -31,7 +32,6 @@ const initialState = {
 
 const reducer = (state, { type, payload }) => {
   const selectedButton = payload.button;
-  const currentCalculation = `${state.previousOperand} ${state.operation} ${state.currentOperand}`;
 
   switch (type) {
     case ACTIONS.ADD_DIGIT:
@@ -127,9 +127,15 @@ const reducer = (state, { type, payload }) => {
         return state;
       else {
         const evaluation = evaluate(state);
+        const currentCalculation = `${formatOperand(state.previousOperand)} ${
+          state.operation
+        } ${formatOperand(state.currentOperand)}`;
         return {
           ...state,
-          history: [`${currentCalculation} = ${evaluation}`, ...state.history],
+          history: [
+            `${currentCalculation} = ${formatOperand(evaluation)}`,
+            ...state.history,
+          ],
           currentOperand: evaluation,
           previousOperand: initialState.previousOperand,
           operation: initialState.operation,

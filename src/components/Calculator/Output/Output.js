@@ -1,12 +1,16 @@
 import classes from './Output.module.css';
 
+import { formatOperand } from '../../../helpers/formatOperand';
+
 const Output = ({ state }) => {
   return (
     <div className={classes.output}>
       <div className={classes['previous-operand']}>
-        {state.previousOperand} {state.operation}
+        {formatOperand(state.previousOperand)} {state.operation}
       </div>
-      <div className={classes['current-operand']}>{state.currentOperand}</div>
+      <div className={classes['current-operand']}>
+        {formatOperand(state.currentOperand)}
+      </div>
     </div>
   );
 };
