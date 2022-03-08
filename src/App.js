@@ -1,6 +1,8 @@
+import './App.css';
+
 import { useReducer, useState } from 'react';
 
-import ToggleButton from './components/ToggleModeButton/ToggleModeButton';
+import ToggleModeButton from './components/ToggleModeButton';
 import History from './components/History/History';
 import Calculator from './components/Calculator/Calculator';
 
@@ -148,13 +150,15 @@ const App = () => {
   const [mode, setMode] = useState(MODES.CALCULATOR);
 
   return (
-    <>
-      <ToggleButton mode={mode} setMode={setMode} />
-      {mode === MODES.HISTORY && <History state={state} />}
-      {mode === MODES.CALCULATOR && (
-        <Calculator state={state} dispatch={dispatch} />
-      )}
-    </>
+    <div className="app">
+      <div className="container">
+        <ToggleModeButton mode={mode} setMode={setMode} />
+        {mode === MODES.HISTORY && <History state={state} />}
+        {mode === MODES.CALCULATOR && (
+          <Calculator state={state} dispatch={dispatch} />
+        )}
+      </div>
+    </div>
   );
 };
 
