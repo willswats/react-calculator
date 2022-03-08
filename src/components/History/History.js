@@ -5,7 +5,9 @@ const History = ({ state }) => {
     <>
       <ul className={classes.history}>
         {state.history.map((calculation, index) => (
-          <li key={index}>{calculation}</li>
+          <li className={classes['history-item']} key={index}>
+            {calculation}
+          </li>
         ))}
       </ul>
     </>

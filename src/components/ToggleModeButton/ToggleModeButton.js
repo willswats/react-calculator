@@ -1,6 +1,6 @@
 import classes from './ToggleModeButton.module.css';
 
-import { MODES } from '../App';
+import { MODES } from '../../App';
 
 const ToggleModeButton = ({ mode, setMode }) => {
   const clickHandler = () => {

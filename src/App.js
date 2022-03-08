@@ -2,7 +2,7 @@ import './App.css';
 
 import { useReducer, useState } from 'react';
 
-import ToggleModeButton from './components/ToggleModeButton';
+import ToggleModeButton from './components/ToggleModeButton/ToggleModeButton';
 import History from './components/History/History';
 import Calculator from './components/Calculator/Calculator';
 
@@ -84,11 +84,9 @@ const reducer = (state, { type, payload }) => {
         };
       // Calculate if clicked on with previousOperand and currentOperand existing
       else {
-        const evaluation = evaluate(state);
         return {
           ...state,
-          // history: [...state.history, `${currentCalculation} = ${evaluation}`],
-          previousOperand: evaluation,
+          previousOperand: evaluate(state),
           operation: selectedButton,
           currentOperand: '',
         };
@@ -131,7 +129,7 @@ const reducer = (state, { type, payload }) => {
         const evaluation = evaluate(state);
         return {
           ...state,
-          history: [...state.history, `${currentCalculation} = ${evaluation}`],
+          history: [`${currentCalculation} = ${evaluation}`, ...state.history],
           currentOperand: evaluation,
           previousOperand: initialState.previousOperand,
           operation: initialState.operation,
