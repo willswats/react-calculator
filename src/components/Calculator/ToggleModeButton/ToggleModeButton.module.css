@@ -1,12 +1,13 @@
-.calculator-btn {
+.mode-btn {
   cursor: pointer;
   font-size: 2rem;
-  border: 1px solid #414141;
+  border: none;
+  border-bottom: 1px solid #414141;
   outline: none;
   color: white;
   background-color: #2b2b2b;
 }
 
-.calculator-btn:hover {
+.mode-btn:hover {
   background-color: #464646;
 }

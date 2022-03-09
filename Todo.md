@@ -1,5 +1,7 @@
 # Todo
 
-- [ ] Add formatter
-- [ ] Create better unique key for history component
-- [ ] Re-do and minimise css
+- [ ] Add contact links
+  - [ ] Website
+  - [ ] Github
+- [ ] Add more styling
+- [ ] Minimise JS

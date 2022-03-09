@@ -1,3 +1,52 @@
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: repeat(5, 8rem);
+  transition: 0.5s;
+}
+
 .span-two {
   grid-column: span 2;
+}
+
+.digit-btn {
+  cursor: pointer;
+  outline: none;
+  color: white;
+  font-size: 2rem;
+  background-color: #2b2b2b;
+  border: 1px solid #414141;
+}
+
+.digit-btn:hover {
+  background-color: #464646;
+}
+
+.operator-btn {
+  cursor: pointer;
+  outline: none;
+  color: white;
+  font-size: 2rem;
+  background-color: #dc8c00;
+  border: 1px solid #414141;
+}
+
+.operator-btn:hover {
+  background-color: #bd7800;
+}
+
+@media screen and (max-width: 768px) {
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: repeat(5, 6rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 4rem);
+    grid-template-rows: repeat(5, 4rem);
+  }
 }
