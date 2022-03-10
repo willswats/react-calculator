@@ -1,12 +1,12 @@
 import './App.css';
 
-import DropDownMenu from './components/DropDownMenu/DropDownMenu';
+import DropDown from './components/DropDown/DropDown';
 import Calculator from './components/Calculator/Calculator';
 
 const App = () => {
   return (
     <div className="app">
-      <DropDownMenu />
+      <DropDown />
       <Calculator />
     </div>
   );
