@@ -10,7 +10,18 @@
   word-wrap: break-word;
   word-break: break-all;
   list-style: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border-bottom: 1px solid #414141;
+}
+@media screen and (max-width: 768px) {
+  .history-item {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .history-item {
+    font-size: 1.5rem;
+  }
 }

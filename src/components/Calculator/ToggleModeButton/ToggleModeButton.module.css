@@ -1,6 +1,6 @@
 .mode-btn {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2.5rem;
   border: none;
   border-bottom: 1px solid #414141;
   outline: none;
@@ -10,4 +10,16 @@
 
 .mode-btn:hover {
   background-color: #464646;
+}
+
+@media screen and (max-width: 768px) {
+  .mode-btn {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mode-btn {
+    font-size: 1.5rem;
+  }
 }
