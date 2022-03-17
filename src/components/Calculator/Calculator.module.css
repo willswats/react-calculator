@@ -1,0 +1,29 @@
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2b2b;
+  border: 1px solid #414141;
+  width: 28rem;
+  height: 46rem;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .calculator {
+    width: 24rem;
+    height: 40rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .calculator {
+    width: 20rem;
+    height: 32rem;
+  }
+}

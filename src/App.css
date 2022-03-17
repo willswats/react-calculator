@@ -1,0 +1,7 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+  background: linear-gradient(-45deg, #2b2b2b, #dc8c00);
+}

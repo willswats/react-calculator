@@ -5,7 +5,7 @@ const CalculatorButton = ({ className, dispatch, type, button }) => {
       onClick={() => dispatch({ type, payload: { button } })}
     >
       {button}
-</button>
+    </button>
   );
 };
 
