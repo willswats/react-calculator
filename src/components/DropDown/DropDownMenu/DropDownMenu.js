@@ -6,9 +6,7 @@ const DropDownMenu = ({ dropDown, setDropDown }) => {
       <button
         onClick={() => setDropDown(!dropDown)}
         className={classes['dropdown-cross']}
-      >
-        x
-      </button>
+      ></button>
       <a href="https://williamwatson.dev">williamwatson.dev</a>
       <a href="https://github.com/willswats/react-calculator">
         GitHub repository
