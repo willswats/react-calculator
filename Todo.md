@@ -1,3 +1,0 @@
-# Todo
-
-- [ ] Write README.md
