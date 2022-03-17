@@ -11,7 +11,7 @@
   background-color: #2b2b2b;
   border: 1px solid #414141;
   width: 28rem;
-  height: 46rem;
+  height: 48rem;
   transition: 0.5s;
 }
 
@@ -24,6 +24,6 @@
 @media screen and (max-width: 480px) {
   .calculator {
     width: 20rem;
-    height: 32rem;
+    height: 34rem;
   }
 }
