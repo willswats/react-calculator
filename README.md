@@ -1,1 +1,33 @@
-# React Calculator
+# React Calculator <!-- omit in toc -->
+
+A caclulator application built with React.
+
+## Table of Contents <!-- omit in toc -->
+
+- [General Information](#general-information)
+- [Features](#features)
+- [Setup](#setup)
+- [Acknowledgements](#acknowledgements)
+
+## General Information
+
+I built this project to further familiarise myself with React hooks, such as `useState` and `useContext`.
+
+## Features
+
+- Peform common mathematical functions
+- Clear the caclulator output (AC)
+- Delete one digit from the calculator output (DEL)
+- View the calculation history
+- A fully responsive design
+
+## Setup
+
+1. Clone the repo
+2. `cd` into the directory
+3. Run `npm install`
+4. Run `npm start`.
+
+## Acknowledgements
+
+I used [this](https://www.youtube.com/watch?v=DgRrrOt0Vr8) tutorial from Web Dev Simplified, and then expanded on it with new features, such as the calculator history.
