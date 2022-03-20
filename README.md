@@ -1,6 +1,6 @@
 # React Calculator <!-- omit in toc -->
 
-A caclulator application built with React.
+A calculator application built with React.
 
 Live version [here](https://react-calculator-willswats.herokuapp.com/).
 
