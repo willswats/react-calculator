@@ -39,7 +39,7 @@
   background-color: #bd7800;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .calculator-buttons {
     display: grid;
     grid-template-columns: repeat(4, 4rem);

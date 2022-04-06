@@ -15,7 +15,7 @@
   transition: 0.5s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .calculator {
     width: 16rem;
     height: 28rem;
