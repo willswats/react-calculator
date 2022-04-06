@@ -1,5 +1,4 @@
 # todo
 
-- [ ] Align grid to calculator properly
+- [ ] Align grid to calculator
 - [ ] Make history more readable
-- [ ] Implement BEM
