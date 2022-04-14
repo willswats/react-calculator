@@ -2,8 +2,6 @@
 
 A calculator application built with React.
 
-Live version [here](https://react-calculator-willswats.herokuapp.com/).
-
 ## Table of Contents <!-- omit in toc -->
 
 - [General Information](#general-information)
