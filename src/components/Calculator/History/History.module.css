@@ -1,18 +1,15 @@
 .history {
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 .history-item {
-  border: 1px solid #414141;
-  overflow: hidden;
   word-wrap: break-word;
   word-break: break-all;
   list-style: none;
   font-size: 2rem;
   padding: 0.5rem 0.5rem 0 0.5rem;
-  border-bottom: 1px solid #414141;
+  border: 1px solid #414141;
 }
 
 @media screen and (max-width: 480px) {

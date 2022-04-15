@@ -159,7 +159,7 @@ const Calculator = () => {
   const [mode, setMode] = useState(MODES.CALCULATOR);
 
   return (
-    <div className={classes['calculator-container']}>
+    <>
       <div className={classes.calculator}>
         <ToggleModeButton mode={mode} setMode={setMode} />
         {mode === MODES.HISTORY && <History state={state} />}
@@ -170,7 +170,7 @@ const Calculator = () => {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
