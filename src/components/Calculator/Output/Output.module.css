@@ -5,9 +5,10 @@
   align-items: flex-end;
   word-wrap: break-word;
   word-break: break-all;
-  flex-grow: 1;
   background-color: #2b2b2b;
   border: 1px solid #414141;
+  flex-grow: 1;
+  border-top: 0;
 }
 
 .previous-operand {

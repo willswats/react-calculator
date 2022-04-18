@@ -7,7 +7,6 @@ import Output from './Output/Output';
 import CalculatorButtons from './CalculatorButtons/CalculatorButtons';
 
 import evaluate from '../../helpers/evaluate';
-import { formatOperand } from '../../helpers/formatOperand';
 
 import classes from './Calculator.module.css';
 
@@ -129,15 +128,15 @@ const reducer = (state, { type, payload }) => {
         return state;
       else {
         const evaluation = evaluate(state);
-        const operands = `${formatOperand(state.previousOperand)} ${
-          state.operation
-        } ${formatOperand(state.currentOperand)}`;
         return {
           ...state,
           history: [
             {
               key: uuid(),
-              calculation: `${operands} = ${formatOperand(evaluation)}`,
+              firstOperands: state.previousOperand,
+              secondOperands: state.currentOperand,
+              operation: state.operation,
+              evaluation: evaluation,
             },
             ...state.history,
           ],
