@@ -6,7 +6,7 @@ const DropDownButton = ({ dropDown, setDropDown }) => {
       onClick={() => setDropDown(!dropDown)}
       className={classes['dropdown-btn']}
     >
-      <div className={classes['dropdown-arrow']} />
+      <div className={classes['dropdown-btn__arrow']} />
     </button>
   );
 };

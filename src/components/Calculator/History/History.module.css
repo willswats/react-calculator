@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.history-item {
+.history__item {
   word-wrap: break-word;
   word-break: break-all;
   text-align: end;
@@ -13,33 +13,33 @@
   border: 1px solid #414141;
 }
 
-.history-item:first-child {
+.history__item:first-child {
   border-top: 0;
 }
 
-.history-item:last-child {
+.history__item:last-child {
   border-bottom: 2px solid #414141;
 }
 
-.operands {
+.history__operands {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
 }
 
-.evaluation {
+.history__evaluation {
   font-size: 2.5rem;
 }
 
 @media screen and (max-width: 480px) {
-  .history-item {
+  .history__item {
     font-size: 1.5rem;
   }
 
-  .operands {
+  .history__operands {
     font-size: 1rem;
   }
 
-  .evaluation {
+  .history__evaluation {
     font-size: 1.8rem;
   }
 }

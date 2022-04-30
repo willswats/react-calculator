@@ -1,15 +1,15 @@
-.calculator-buttons {
+.calculator-btns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(5, 6rem);
   transition: 0.5s;
 }
 
-.span-two {
+.calculator-btns__two {
   grid-column: span 2;
 }
 
-.digit-btn {
+.calculator-btns__digit-btn {
   cursor: pointer;
   outline: none;
   color: #fff;
@@ -19,11 +19,11 @@
   transition: background-color 0.1s ease;
 }
 
-.digit-btn:hover {
+.calculator-btns__digit-btn:hover {
   background-color: #464646;
 }
 
-.operator-btn {
+.calculator-btns__operator-btn {
   cursor: pointer;
   outline: none;
   color: white;
@@ -33,16 +33,16 @@
   transition: background-color 0.1s ease;
 }
 
-.operator-btn:hover {
+.calculator-btns__operator-btn:hover {
   background-color: #bd7800;
 }
 
 @media screen and (max-width: 480px) {
-  .calculator-buttons {
+  .calculator-btns {
     grid-template-rows: repeat(5, 4rem);
   }
-  .digit-btn,
-  .operator-btn {
+  .calculator-btns__digit-btn,
+  .calculator-btns__operator-btn {
     font-size: 1.5rem;
   }
 }

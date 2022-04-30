@@ -11,22 +11,22 @@
   border-top: 0;
 }
 
-.previous-operand {
+.output__previous {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
 }
 
-.current-operand {
+.output__current {
   color: #fff;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 480px) {
-  .previous-operand {
+  .output__previous {
     font-size: 1rem;
   }
-  .current-operand {
+  .output__current {
     font-size: 1.8rem;
   }
 }

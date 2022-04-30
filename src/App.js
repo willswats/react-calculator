@@ -5,12 +5,10 @@ import Calculator from './components/Calculator/Calculator';
 
 const App = () => {
   return (
-    <>
+    <div className="app">
       <DropDown />
-      <div className="calculator-container">
-        <Calculator />
-      </div>
-    </>
+      <Calculator />
+    </div>
   );
 };
 

@@ -6,20 +6,20 @@
   border-radius: 10%;
 }
 
-.dropdown-menu a {
+.dropdown-menu__link {
   color: black;
   padding-bottom: 0.5rem;
 }
 
-.dropdown-menu a:last-of-type {
-  padding-bottom: 0;
-}
-
-.dropdown-menu a:hover {
+.dropdown-menu__link:hover {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.dropdown-cross {
+.dropdown-menu__link:last-of-type {
+  padding-bottom: 0;
+}
+
+.dropdown-menu__btn {
   position: absolute;
   right: 4px;
   top: 4px;
@@ -30,11 +30,11 @@
   border-radius: 20%;
 }
 
-.dropdown-cross:hover {
+.dropdown-menu__btn:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.dropdown-cross::after {
+.dropdown-menu__btn::after {
   display: inline-block;
   content: '\00d7';
   transform: scale(1.5, 1.5);

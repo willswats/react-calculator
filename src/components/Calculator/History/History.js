@@ -7,13 +7,13 @@ const History = ({ state }) => {
     <ul className={classes.history}>
       {state.history.map(
         ({ firstOperands, secondOperands, operation, evaluation, key }) => (
-          <li className={classes['history-item']} key={key}>
-            <div className={classes['operands']}>
+          <li className={classes['history__item']} key={key}>
+            <div className={classes['history__operands']}>
               {`${formatOperand(firstOperands)} ${operation} ${formatOperand(
                 secondOperands
               )}`}
             </div>
-            <div className={classes['evaluation']}>
+            <div className={classes['history__evaluation']}>
               {formatOperand(evaluation)}
             </div>
           </li>
