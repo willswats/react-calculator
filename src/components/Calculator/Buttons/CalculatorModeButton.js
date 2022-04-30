@@ -1,8 +1,8 @@
-import classes from './ToggleModeButton.module.css';
+import classes from './CalculatorModeButton.module.css';
 
 import { MODES } from '../Calculator';
 
-const ToggleModeButton = ({ mode, setMode }) => {
+const CalculatorModeButton = ({ mode, setMode }) => {
   const clickHandler = () => {
     if (mode === MODES.HISTORY) {
       setMode(MODES.CALCULATOR);
@@ -21,4 +21,4 @@ const ToggleModeButton = ({ mode, setMode }) => {
   );
 };
 
-export default ToggleModeButton;
+export default CalculatorModeButton;

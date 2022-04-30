@@ -1,10 +1,10 @@
 import { useReducer, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import ToggleModeButton from './ToggleModeButton/ToggleModeButton';
-import History from './History/History';
-import Output from './Output/Output';
-import CalculatorButtons from './CalculatorButtons/CalculatorButtons';
+import CalculatorModeButton from './Buttons/CalculatorModeButton';
+import CalculatorHistory from './CalculatorHistory';
+import CalculatorOutput from './CalculatorOutput';
+import CalculatorGrid from './CalculatorGrid';
 
 import evaluate from '../../helpers/evaluate';
 
@@ -159,13 +159,13 @@ const Calculator = () => {
 
   return (
     <>
-      <div className={classes.calculator}>
-        <ToggleModeButton mode={mode} setMode={setMode} />
-        {mode === MODES.HISTORY && <History state={state} />}
+      <div className={classes['calculator']}>
+        <CalculatorModeButton mode={mode} setMode={setMode} />
+        {mode === MODES.HISTORY && <CalculatorHistory state={state} />}
         {mode === MODES.CALCULATOR && (
           <>
-            <Output state={state} />
-            <CalculatorButtons dispatch={dispatch} />
+            <CalculatorOutput state={state} />
+            <CalculatorGrid dispatch={dispatch} />
           </>
         )}
       </div>

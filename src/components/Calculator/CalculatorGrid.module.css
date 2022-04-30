@@ -1,15 +1,15 @@
-.calculator-btns {
+.grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(5, 6rem);
   transition: 0.5s;
 }
 
-.calculator-btns__two {
+.grid__span-two {
   grid-column: span 2;
 }
 
-.calculator-btns__digit-btn {
+.grid__digit-btn {
   cursor: pointer;
   outline: none;
   color: #fff;
@@ -19,11 +19,11 @@
   transition: background-color 0.1s ease;
 }
 
-.calculator-btns__digit-btn:hover {
+.grid__digit-btn:hover {
   background-color: #464646;
 }
 
-.calculator-btns__operator-btn {
+.grid__operator-btn {
   cursor: pointer;
   outline: none;
   color: white;
@@ -33,16 +33,16 @@
   transition: background-color 0.1s ease;
 }
 
-.calculator-btns__operator-btn:hover {
+.grid__operator-btn:hover {
   background-color: #bd7800;
 }
 
 @media screen and (max-width: 480px) {
-  .calculator-btns {
+  .grid {
     grid-template-rows: repeat(5, 4rem);
   }
-  .calculator-btns__digit-btn,
-  .calculator-btns__operator-btn {
+  .grid__digit-btn,
+  .grid__operator-btn {
     font-size: 1.5rem;
   }
 }

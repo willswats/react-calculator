@@ -1,10 +1,10 @@
-import classes from './History.module.css';
+import classes from './CalculatorHistory.module.css';
 
-import { formatOperand } from '../../../helpers/formatOperand';
+import { formatOperand } from '../../helpers/formatOperand';
 
-const History = ({ state }) => {
+const CalculatorHistory = ({ state }) => {
   return (
-    <ul className={classes.history}>
+    <ul className={classes['history']}>
       {state.history.map(
         ({ firstOperands, secondOperands, operation, evaluation, key }) => (
           <li className={classes['history__item']} key={key}>
@@ -23,4 +23,4 @@ const History = ({ state }) => {
   );
 };
 
-export default History;
+export default CalculatorHistory;

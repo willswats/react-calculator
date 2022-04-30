@@ -1,124 +1,116 @@
-import classes from './CalculatorButtons.module.css';
+import { ACTIONS } from './Calculator';
 
-import { ACTIONS } from '../../Calculator/Calculator';
+import CalculatorButton from './Buttons/CalculatorButton';
 
-import CalculatorButton from './CalculatorButton';
+import classes from './CalculatorGrid.module.css';
 
-const CalculatorButtons = ({ dispatch }) => {
+const CalculatorGrid = ({ dispatch }) => {
   return (
-    <div className={classes['calculator-btns']}>
+    <div className={classes['grid']}>
       <CalculatorButton
-        className={
-          classes['calculator-btns__digit-btn'] +
-          ' ' +
-          classes['calculator-btns__two']
-        }
+        className={classes['grid__digit-btn'] + ' ' + classes['grid__span-two']}
         dispatch={dispatch}
         type={ACTIONS.ALL_CLEAR}
         button="AC"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.DELETE_DIGIT}
         button="DEL"
       />
       <CalculatorButton
-        className={classes['calculator-btns__operator-btn']}
+        className={classes['grid__operator-btn']}
         dispatch={dispatch}
         type={ACTIONS.SELECT_OPERATION}
         button="/"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="7"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="8"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="9"
       />
       <CalculatorButton
-        className={classes['calculator-btns__operator-btn']}
+        className={classes['grid__operator-btn']}
         dispatch={dispatch}
         type={ACTIONS.SELECT_OPERATION}
         button="*"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="4"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="5"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="6"
       />
       <CalculatorButton
-        className={classes['calculator-btns__operator-btn']}
+        className={classes['grid__operator-btn']}
         dispatch={dispatch}
         type={ACTIONS.SELECT_OPERATION}
         button="-"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="1"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="2"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="3"
       />
       <CalculatorButton
-        className={classes['calculator-btns__operator-btn']}
+        className={classes['grid__operator-btn']}
         dispatch={dispatch}
         type={ACTIONS.SELECT_OPERATION}
         button="+"
       />
       <CalculatorButton
-        className={
-          classes['calculator-btns__digit-btn'] +
-          ' ' +
-          classes['calculator-btns__two']
-        }
+        className={classes['grid__digit-btn'] + ' ' + classes['grid__span-two']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="0"
       />
       <CalculatorButton
-        className={classes['calculator-btns__digit-btn']}
+        className={classes['grid__digit-btn']}
         dispatch={dispatch}
         type={ACTIONS.ADD_DIGIT}
         button="."
       />
       <CalculatorButton
-        className={classes['calculator-btns__operator-btn']}
+        className={classes['grid__operator-btn']}
         dispatch={dispatch}
         type={ACTIONS.EVALUATE}
         button="="
@@ -127,4 +119,4 @@ const CalculatorButtons = ({ dispatch }) => {
   );
 };
 
-export default CalculatorButtons;
+export default CalculatorGrid;

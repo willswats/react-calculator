@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import DropDownButton from './DropDownButton/DropDownButton';
-import DropDownMenu from './DropDownMenu/DropDownMenu';
+import DropDownButton from './DropDownButton';
+import DropDownMenu from './DropDownMenu';
 
 import classes from './DropDown.module.css';
 

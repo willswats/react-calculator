@@ -1,10 +1,10 @@
-import classes from './Output.module.css';
+import classes from './CalculatorOutput.module.css';
 
-import { formatOperand } from '../../../helpers/formatOperand';
+import { formatOperand } from '../../helpers/formatOperand';
 
-const Output = ({ state }) => {
+const CalculatorOutput = ({ state }) => {
   return (
-    <div className={classes.output}>
+    <div className={classes['output']}>
       <div className={classes['output__previous']}>
         {formatOperand(state.previousOperand)} {state.operation}
       </div>
@@ -15,4 +15,4 @@ const Output = ({ state }) => {
   );
 };
 
-export default Output;
+export default CalculatorOutput;
