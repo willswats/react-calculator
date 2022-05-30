@@ -1,120 +1,32 @@
-import { ACTIONS } from './Calculator';
-
-import CalculatorButton from './Buttons/CalculatorButton';
+import DigitButton from './Buttons/GridButtons/DigitButton';
+import OperatorButton from './Buttons/GridButtons/OperatorButton';
+import ClearButton from './Buttons/GridButtons/ClearButton';
+import DeleteButton from './Buttons/GridButtons/DeleteButton';
+import EvaluateButton from './Buttons/GridButtons/EvaluateButton';
 
 import classes from './CalculatorGrid.module.css';
 
 const CalculatorGrid = ({ dispatch }) => {
   return (
     <div className={classes['grid']}>
-      <CalculatorButton
-        className={classes['grid__digit-btn'] + ' ' + classes['grid__span-two']}
-        dispatch={dispatch}
-        type={ACTIONS.ALL_CLEAR}
-        button="AC"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.DELETE_DIGIT}
-        button="DEL"
-      />
-      <CalculatorButton
-        className={classes['grid__operator-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.SELECT_OPERATION}
-        button="/"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="7"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="8"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="9"
-      />
-      <CalculatorButton
-        className={classes['grid__operator-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.SELECT_OPERATION}
-        button="*"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="4"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="5"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="6"
-      />
-      <CalculatorButton
-        className={classes['grid__operator-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.SELECT_OPERATION}
-        button="-"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="1"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="2"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="3"
-      />
-      <CalculatorButton
-        className={classes['grid__operator-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.SELECT_OPERATION}
-        button="+"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn'] + ' ' + classes['grid__span-two']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="0"
-      />
-      <CalculatorButton
-        className={classes['grid__digit-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.ADD_DIGIT}
-        button="."
-      />
-      <CalculatorButton
-        className={classes['grid__operator-btn']}
-        dispatch={dispatch}
-        type={ACTIONS.EVALUATE}
-        button="="
-      />
+      <ClearButton dispatch={dispatch} />
+      <DeleteButton dispatch={dispatch} />
+      <OperatorButton dispatch={dispatch} operator="/" />
+      <DigitButton dispatch={dispatch} digit="7" />
+      <DigitButton dispatch={dispatch} digit="8" />
+      <DigitButton dispatch={dispatch} digit="9" />
+      <OperatorButton dispatch={dispatch} operator="*" />
+      <DigitButton dispatch={dispatch} digit="4" />
+      <DigitButton dispatch={dispatch} digit="5" />
+      <DigitButton dispatch={dispatch} digit="6" />
+      <OperatorButton dispatch={dispatch} operator="-" />
+      <DigitButton dispatch={dispatch} digit="1" />
+      <DigitButton dispatch={dispatch} digit="2" />
+      <DigitButton dispatch={dispatch} digit="3" />
+      <OperatorButton dispatch={dispatch} operator="+" />
+      <DigitButton dispatch={dispatch} digit="0" />
+      <DigitButton dispatch={dispatch} digit="." />
+      <EvaluateButton dispatch={dispatch} />
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.evaluate-btn {
+  cursor: pointer;
+  outline: none;
+  color: white;
+  font-size: 2rem;
+  background-color: #dc8c00;
+  border: 1px solid #414141;
+  transition: background-color 0.1s ease;
+}
+
+.evaluate-btn:hover {
+  background-color: #bd7800;
+}
+
+@media screen and (max-width: 480px) {
+  .evaluate-btn {
+    font-size: 1.5rem;
+  }
+}

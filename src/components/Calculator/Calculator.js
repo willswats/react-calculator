@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import CalculatorModeButton from './Buttons/CalculatorModeButton';
+import ModeButton from './Buttons/ModeButton';
 import CalculatorHistory from './CalculatorHistory';
 import CalculatorOutput from './CalculatorOutput';
 import CalculatorGrid from './CalculatorGrid';
@@ -32,34 +32,30 @@ const initialState = {
 };
 
 const reducer = (state, { type, payload }) => {
-  const selectedButton = payload.button;
-
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       // Prevent adding to evaluated calculation
       if (state.overwrite)
         return {
           ...state,
-          currentOperand: payload.button,
+          currentOperand: payload.digit,
           overwrite: false,
         };
       // Do not allow more than one '.'
-      if (selectedButton === '.' && state.currentOperand.includes('.'))
+      if (payload.digit === '.' && state.currentOperand.includes('.'))
         return state;
       // No more than one '0' if already '0'
-      if (selectedButton === '0' && state.currentOperand === '0') return state;
+      if (payload.digit === '0' && state.currentOperand === '0') return state;
       // Override existing '0' if greater than '0'
-      if (selectedButton > '0' && state.currentOperand === '0')
+      if (payload.digit > '0' && state.currentOperand === '0')
         return {
           ...state,
-          currentOperand: `${selectedButton}`,
+          currentOperand: `${payload.digit}`,
         };
-      // No more than 9 numbers in length
-      if (state.currentOperand.length >= 9) return state;
       else {
         return {
           ...state,
-          currentOperand: `${state.currentOperand}${selectedButton}`,
+          currentOperand: `${state.currentOperand}${payload.digit}`,
         };
       }
 
@@ -73,14 +69,14 @@ const reducer = (state, { type, payload }) => {
       if (state.currentOperand === '')
         return {
           ...state,
-          operation: selectedButton,
+          operation: payload.operator,
         };
       // Set previousOperand if none
       if (state.previousOperand === initialState.previousOperand)
         return {
           ...state,
           previousOperand: state.currentOperand,
-          operation: selectedButton,
+          operation: payload.operator,
           currentOperand: '',
         };
       // Calculate if clicked on with previousOperand and currentOperand existing
@@ -88,7 +84,7 @@ const reducer = (state, { type, payload }) => {
         return {
           ...state,
           previousOperand: evaluate(state),
-          operation: selectedButton,
+          operation: payload.operator,
           currentOperand: '',
         };
       }
@@ -160,7 +156,7 @@ const Calculator = () => {
   return (
     <>
       <div className={classes['calculator']}>
-        <CalculatorModeButton mode={mode} setMode={setMode} />
+        <ModeButton mode={mode} setMode={setMode} />
         {mode === MODES.HISTORY && <CalculatorHistory state={state} />}
         {mode === MODES.CALCULATOR && (
           <>

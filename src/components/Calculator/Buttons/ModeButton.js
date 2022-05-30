@@ -1,8 +1,8 @@
-import classes from './CalculatorModeButton.module.css';
+import classes from './ModeButton.module.css';
 
 import { MODES } from '../Calculator';
 
-const CalculatorModeButton = ({ mode, setMode }) => {
+const ModeButton = ({ mode, setMode }) => {
   const clickHandler = () => {
     if (mode === MODES.HISTORY) {
       setMode(MODES.CALCULATOR);
@@ -21,4 +21,4 @@ const CalculatorModeButton = ({ mode, setMode }) => {
   );
 };
 
-export default CalculatorModeButton;
+export default ModeButton;
