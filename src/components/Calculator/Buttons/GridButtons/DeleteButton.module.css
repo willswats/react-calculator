@@ -11,9 +11,3 @@
 .delete-btn:hover {
   background-color: #464646;
 }
-
-@media screen and (max-width: 480px) {
-  .delete-btn {
-    font-size: 1.5rem;
-  }
-}

@@ -15,9 +15,3 @@
 .digit-btn--span {
   grid-column: span 2;
 }
-
-@media screen and (max-width: 480px) {
-  .digit-btn {
-    font-size: 1.5rem;
-  }
-}

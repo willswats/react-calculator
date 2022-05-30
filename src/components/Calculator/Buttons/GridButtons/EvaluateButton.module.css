@@ -11,9 +11,3 @@
 .evaluate-btn:hover {
   background-color: #bd7800;
 }
-
-@media screen and (max-width: 480px) {
-  .evaluate-btn {
-    font-size: 1.5rem;
-  }
-}

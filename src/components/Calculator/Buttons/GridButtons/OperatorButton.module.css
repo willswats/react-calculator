@@ -11,9 +11,3 @@
 .operator-btn:hover {
   background-color: #bd7800;
 }
-
-@media screen and (max-width: 480px) {
-  .operator-btn {
-    font-size: 1.5rem;
-  }
-}
