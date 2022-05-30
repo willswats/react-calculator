@@ -6,7 +6,7 @@ import Calculator from './components/Calculator/Calculator';
 const App = () => {
   return (
     <div className="app">
-      <DropDown />
+      {/* <DropDown /> */}
       <Calculator />
     </div>
   );
