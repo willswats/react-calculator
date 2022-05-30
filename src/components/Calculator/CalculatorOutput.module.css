@@ -9,7 +9,7 @@
   border: 1px solid #414141;
   height: 180px;
   border-top: 0;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .output__previous {
