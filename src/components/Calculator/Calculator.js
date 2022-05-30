@@ -42,12 +42,13 @@ const reducer = (state, { type, payload }) => {
           overwrite: false,
         };
       // Do not allow more than one '.'
-      if (payload.digit === '.' && state.currentOperand.includes('.'))
+      else if (payload.digit === '.' && state.currentOperand.includes('.'))
         return state;
       // No more than one '0' if already '0'
-      if (payload.digit === '0' && state.currentOperand === '0') return state;
+      else if (payload.digit === '0' && state.currentOperand === '0')
+        return state;
       // Override existing '0' if greater than '0'
-      if (payload.digit > '0' && state.currentOperand === '0')
+      else if (payload.digit > '0' && state.currentOperand === '0')
         return {
           ...state,
           currentOperand: `${payload.digit}`,
@@ -66,13 +67,13 @@ const reducer = (state, { type, payload }) => {
       )
         return state;
       // Allows changing of operation mid-calculation
-      if (state.currentOperand === '')
+      else if (state.currentOperand === '')
         return {
           ...state,
           operation: payload.operator,
         };
       // Set previousOperand if none
-      if (state.previousOperand === initialState.previousOperand)
+      else if (state.previousOperand === initialState.previousOperand)
         return {
           ...state,
           previousOperand: state.currentOperand,
@@ -104,9 +105,10 @@ const reducer = (state, { type, payload }) => {
           overwrite: false,
         };
       // Do nothing if no currentOperand
-      if (state.currentOperand === initialState.currentOperand) return state;
+      else if (state.currentOperand === initialState.currentOperand)
+        return state;
       // Set back to initialState if 1 in length
-      if (state.currentOperand.length === 1)
+      else if (state.currentOperand.length === 1)
         return { ...state, currentOperand: initialState.currentOperand };
       else {
         return {
