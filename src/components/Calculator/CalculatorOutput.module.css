@@ -7,16 +7,19 @@
   word-break: break-all;
   background-color: #2b2b2b;
   border: 1px solid #414141;
-  height: 150px;
+  height: 200px;
   border-top: 0;
+  overflow: scroll;
 }
 
 .output__previous {
+  display: flex;
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
 }
 
 .output__current {
+  display: flex;
   color: #fff;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
