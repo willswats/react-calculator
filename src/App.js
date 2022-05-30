@@ -6,8 +6,12 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   return (
     <div className="app">
-      <Calculator />
-      <Footer />
+      <div className="calculator-container">
+        <Calculator />
+      </div>
+      <div className="footer-container">
+        <Footer />
+      </div>
     </div>
   );
 };
