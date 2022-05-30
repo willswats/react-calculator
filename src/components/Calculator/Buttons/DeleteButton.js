@@ -1,4 +1,4 @@
-import { ACTIONS } from '../../Calculator';
+import { ACTIONS } from '../Calculator';
 
 import classes from './DeleteButton.module.css';
 

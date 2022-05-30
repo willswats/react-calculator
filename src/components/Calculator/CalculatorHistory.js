@@ -1,7 +1,5 @@
 import classes from './CalculatorHistory.module.css';
 
-import { formatOperand } from '../../helpers/formatOperand';
-
 const CalculatorHistory = ({ state }) => {
   return (
     <ul className={classes['history']}>
@@ -9,13 +7,9 @@ const CalculatorHistory = ({ state }) => {
         ({ firstOperands, secondOperands, operation, evaluation, key }) => (
           <li className={classes['history__item']} key={key}>
             <div className={classes['history__operands']}>
-              {`${formatOperand(firstOperands)} ${operation} ${formatOperand(
-                secondOperands
-              )}`}
+              {`${firstOperands} ${operation} ${secondOperands}`}
             </div>
-            <div className={classes['history__evaluation']}>
-              {formatOperand(evaluation)}
-            </div>
+            <div className={classes['history__evaluation']}>{evaluation}</div>
           </li>
         )
       )}

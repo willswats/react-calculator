@@ -1,8 +1,8 @@
-import DigitButton from './Buttons/GridButtons/DigitButton';
-import OperatorButton from './Buttons/GridButtons/OperatorButton';
-import ClearButton from './Buttons/GridButtons/ClearButton';
-import DeleteButton from './Buttons/GridButtons/DeleteButton';
-import EvaluateButton from './Buttons/GridButtons/EvaluateButton';
+import DigitButton from './Buttons/DigitButton';
+import OperatorButton from './Buttons/OperatorButton';
+import ClearButton from './Buttons/ClearButton';
+import DeleteButton from './Buttons/DeleteButton';
+import EvaluateButton from './Buttons/EvaluateButton';
 
 import classes from './CalculatorGrid.module.css';
 
