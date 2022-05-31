@@ -42,27 +42,26 @@ const reducer = (state, { type, payload }) => {
         };
       }
       // Do not allow more than one '.' or '0'
-      if (
+      else if (
         (payload.content === '.' && state.currentOperand.includes('.')) ||
         (payload.content === '0' && state.currentOperand === '0')
       ) {
         return state;
         // Overwrite initialState to get rid of '0'
       } else if (
-        (payload.content > '0' &&
-          state.currentOperand === initialState.currentOperand) ||
-        (payload.content === '.' &&
-          state.currentOperand === initialState.currentOperand)
-      )
+        payload.content > '0' &&
+        state.currentOperand === initialState.currentOperand
+      ) {
         return {
           ...state,
           currentOperand: `${payload.content}`,
         };
-      return {
-        ...state,
-        currentOperand: `${state.currentOperand}${payload.content}`,
-      };
-
+      } else {
+        return {
+          ...state,
+          currentOperand: `${state.currentOperand}${payload.content}`,
+        };
+      }
     case ACTIONS.SELECT_OPERATION:
       if (
         (state.currentOperand === initialState.currentOperand &&
@@ -71,26 +70,28 @@ const reducer = (state, { type, payload }) => {
       )
         return state;
       // Allows changing of operation mid-calculation
-      else if (state.currentOperand === '')
+      else if (state.currentOperand === '') {
         return {
           ...state,
           operation: payload.content,
         };
+      }
       // Set previousOperand if none
-      else if (state.previousOperand === initialState.previousOperand)
+      else if (state.previousOperand === initialState.previousOperand) {
         return {
           ...state,
           previousOperand: state.currentOperand,
           operation: payload.content,
           currentOperand: '',
         };
-      // Calculate if clicked on with previousOperand and currentOperand existing
-      return {
-        ...state,
-        previousOperand: evaluate(state),
-        operation: payload.content,
-        currentOperand: '',
-      };
+      } else {
+        return {
+          ...state,
+          previousOperand: evaluate(state),
+          operation: payload.content,
+          currentOperand: '',
+        };
+      }
 
     case ACTIONS.ALL_CLEAR:
       return {
@@ -107,7 +108,8 @@ const reducer = (state, { type, payload }) => {
           overwrite: false,
         };
       // Do nothing if no currentOperand
-      if (state.currentOperand === initialState.currentOperand) return state;
+      else if (state.currentOperand === initialState.currentOperand)
+        return state;
       // Set back to initialState if 1 in length
       else if (state.currentOperand.length === 1)
         return { ...state, currentOperand: initialState.currentOperand };
@@ -127,7 +129,7 @@ const reducer = (state, { type, payload }) => {
       )
         return state;
       // Don't update history if error
-      if (isNaN(evaluation)) {
+      else if (isNaN(evaluation)) {
         return {
           ...state,
           currentOperand: evaluation,

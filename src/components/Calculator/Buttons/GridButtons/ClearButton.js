@@ -12,11 +12,9 @@ const ClearButton = ({ dispatch }) => {
       if (event.key === 'Escape') {
         setPressed(true);
         dispatch({ type: ACTIONS.ALL_CLEAR });
-        const timer = setTimeout(() => {
+        setTimeout(() => {
           setPressed(false);
         }, 100);
-        timer();
-        clearTimeout(timer);
       }
     },
     [dispatch]

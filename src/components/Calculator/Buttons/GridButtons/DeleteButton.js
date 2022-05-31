@@ -12,11 +12,9 @@ const DeleteButton = ({ dispatch }) => {
       if (event.key === 'Backspace' || event.key === 'Delete') {
         setPressed(true);
         dispatch({ type: ACTIONS.DELETE_DIGIT });
-        const timer = setTimeout(() => {
+        setTimeout(() => {
           setPressed(false);
         }, 100);
-        timer();
-        clearTimeout(timer);
       }
     },
     [dispatch]
