@@ -10,6 +10,7 @@
   border-bottom: 2px solid #414141;
 }
 
-.mode-btn:hover {
+.mode-btn:hover,
+.mode-btn:focus {
   background-color: #464646;
 }

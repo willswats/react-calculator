@@ -8,7 +8,8 @@
   transition: background-color 0.1s ease;
 }
 
-.calculator-btn:hover {
+.calculator-btn:hover,
+.calculator-btn:focus {
   background-color: #464646;
 }
 
@@ -24,8 +25,9 @@
   background-color: #dc8c00;
 }
 
-.orange:hover {
-  background-color: #dc8c00;
+.orange:hover,
+.orange:focus {
+  background-color: #bd7800;
 }
 
 .orange--pressed {
