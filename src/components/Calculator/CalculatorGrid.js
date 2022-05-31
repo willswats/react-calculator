@@ -1,8 +1,8 @@
-import DigitButton from './Buttons/DigitButton';
-import OperatorButton from './Buttons/OperatorButton';
-import ClearButton from './Buttons/ClearButton';
-import DeleteButton from './Buttons/DeleteButton';
-import EvaluateButton from './Buttons/EvaluateButton';
+import ClearButton from './Buttons/GridButtons/ClearButton';
+import DeleteButton from './Buttons/GridButtons/DeleteButton';
+import CalculatorButton from './Buttons/GridButtons/CalculatorButton';
+
+import { ACTIONS } from './Calculator';
 
 import classes from './CalculatorGrid.module.css';
 
@@ -11,22 +11,89 @@ const CalculatorGrid = ({ dispatch }) => {
     <div className={classes['grid']}>
       <ClearButton dispatch={dispatch} />
       <DeleteButton dispatch={dispatch} />
-      <OperatorButton dispatch={dispatch} operator="/" />
-      <DigitButton dispatch={dispatch} digit="7" />
-      <DigitButton dispatch={dispatch} digit="8" />
-      <DigitButton dispatch={dispatch} digit="9" />
-      <OperatorButton dispatch={dispatch} operator="*" />
-      <DigitButton dispatch={dispatch} digit="4" />
-      <DigitButton dispatch={dispatch} digit="5" />
-      <DigitButton dispatch={dispatch} digit="6" />
-      <OperatorButton dispatch={dispatch} operator="-" />
-      <DigitButton dispatch={dispatch} digit="1" />
-      <DigitButton dispatch={dispatch} digit="2" />
-      <DigitButton dispatch={dispatch} digit="3" />
-      <OperatorButton dispatch={dispatch} operator="+" />
-      <DigitButton dispatch={dispatch} digit="0" />
-      <DigitButton dispatch={dispatch} digit="." />
-      <EvaluateButton dispatch={dispatch} />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.SELECT_OPERATION}
+        content="/"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="7"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="8"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="9"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.SELECT_OPERATION}
+        content="*"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="4"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="5"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="6"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.SELECT_OPERATION}
+        content="-"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="1"
+      />
+
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="2"
+      />
+
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="3"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.SELECT_OPERATION}
+        content="+"
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="0"
+      />
+
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.ADD_DIGIT}
+        content="."
+      />
+      <CalculatorButton
+        dispatch={dispatch}
+        type={ACTIONS.EVALUATE}
+        content="="
+      />
     </div>
   );
 };

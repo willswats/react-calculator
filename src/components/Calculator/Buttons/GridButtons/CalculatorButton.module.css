@@ -1,0 +1,33 @@
+.calculator-btn {
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  font-size: 1.8rem;
+  background-color: #2b2b2b;
+  border: 1px solid #414141;
+  transition: background-color 0.1s ease;
+}
+
+.calculator-btn:hover {
+  background-color: #464646;
+}
+
+.calculator-btn--large {
+  grid-column: span 2;
+}
+
+.calculator-btn--pressed {
+  background-color: #464646;
+}
+
+.orange {
+  background-color: #dc8c00;
+}
+
+.orange:hover {
+  background-color: #dc8c00;
+}
+
+.orange--pressed {
+  background-color: #bd7800;
+}

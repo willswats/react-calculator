@@ -1,14 +1,20 @@
-import { useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-import { ACTIONS } from '../Calculator';
+import { ACTIONS } from '../../Calculator';
 
-import classes from './ClearButton.module.css';
+import classes from './CalculatorButton.module.css';
 
 const ClearButton = ({ dispatch }) => {
+  const [pressed, setPressed] = useState(false);
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Delete') {
+        setPressed(true);
         dispatch({ type: ACTIONS.ALL_CLEAR });
+        setTimeout(() => {
+          setPressed(false);
+        }, 100);
       }
     },
     [dispatch]
@@ -26,7 +32,11 @@ const ClearButton = ({ dispatch }) => {
 
   return (
     <button
-      className={classes['clear-btn']}
+      className={`
+      ${classes['calculator-btn']} 
+      ${classes['calculator-btn--large']}
+      ${pressed ? classes['calculator-btn--pressed'] : ''} 
+      `}
       onClick={() => dispatch({ type: ACTIONS.ALL_CLEAR })}
     >
       AC

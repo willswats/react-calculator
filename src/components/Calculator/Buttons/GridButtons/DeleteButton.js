@@ -1,14 +1,20 @@
-import { useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-import { ACTIONS } from '../Calculator';
+import { ACTIONS } from '../../Calculator';
 
-import classes from './DeleteButton.module.css';
+import classes from './CalculatorButton.module.css';
 
 const DeleteButton = ({ dispatch }) => {
+  const [pressed, setPressed] = useState(false);
+
   const handleKeyPress = useCallback(
     (event) => {
       if (event.key === 'Backspace') {
+        setPressed(true);
         dispatch({ type: ACTIONS.DELETE_DIGIT });
+        setTimeout(() => {
+          setPressed(false);
+        }, 100);
       }
     },
     [dispatch]
@@ -26,7 +32,10 @@ const DeleteButton = ({ dispatch }) => {
 
   return (
     <button
-      className={classes['delete-btn']}
+      className={`
+      ${classes['calculator-btn']} 
+      ${pressed ? classes['calculator-btn--pressed'] : ''} 
+      `}
       onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}
     >
       DEL

@@ -38,25 +38,25 @@ const reducer = (state, { type, payload }) => {
       if (state.overwrite)
         return {
           ...state,
-          currentOperand: payload.digit,
+          currentOperand: payload.content,
           overwrite: false,
         };
       // Do not allow more than one '.'
-      else if (payload.digit === '.' && state.currentOperand.includes('.'))
+      else if (payload.content === '.' && state.currentOperand.includes('.'))
         return state;
       // No more than one '0' if already '0'
-      else if (payload.digit === '0' && state.currentOperand === '0')
+      else if (payload.content === '0' && state.currentOperand === '0')
         return state;
       // Override existing '0' if greater than '0'
-      else if (payload.digit > '0' && state.currentOperand === '0')
+      else if (payload.content > '0' && state.currentOperand === '0')
         return {
           ...state,
-          currentOperand: `${payload.digit}`,
+          currentOperand: `${payload.content}`,
         };
       else {
         return {
           ...state,
-          currentOperand: `${state.currentOperand}${payload.digit}`,
+          currentOperand: `${state.currentOperand}${payload.content}`,
         };
       }
 
@@ -70,14 +70,14 @@ const reducer = (state, { type, payload }) => {
       else if (state.currentOperand === '')
         return {
           ...state,
-          operation: payload.operator,
+          operation: payload.content,
         };
       // Set previousOperand if none
       else if (state.previousOperand === initialState.previousOperand)
         return {
           ...state,
           previousOperand: state.currentOperand,
-          operation: payload.operator,
+          operation: payload.content,
           currentOperand: '',
         };
       // Calculate if clicked on with previousOperand and currentOperand existing
@@ -85,7 +85,7 @@ const reducer = (state, { type, payload }) => {
         return {
           ...state,
           previousOperand: evaluate(state),
-          operation: payload.operator,
+          operation: payload.content,
           currentOperand: '',
         };
       }
