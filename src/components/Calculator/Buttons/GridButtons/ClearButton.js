@@ -9,7 +9,7 @@ const ClearButton = ({ dispatch }) => {
 
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === 'Delete') {
+      if (event.key === 'Escape') {
         setPressed(true);
         dispatch({ type: ACTIONS.ALL_CLEAR });
         setTimeout(() => {

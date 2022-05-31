@@ -9,7 +9,7 @@ const DeleteButton = ({ dispatch }) => {
 
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === 'Backspace') {
+      if (event.key === 'Backspace' || event.key === 'Delete') {
         setPressed(true);
         dispatch({ type: ACTIONS.DELETE_DIGIT });
         setTimeout(() => {
