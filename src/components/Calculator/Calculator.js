@@ -35,11 +35,9 @@ const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       // Prevent adding to evaluated calculation
-      if (state.overwrite)
+      if (state.prevent)
         return {
           ...state,
-          currentOperand: payload.digit,
-          overwrite: false,
         };
       // Do not allow more than one '.'
       else if (payload.digit === '.' && state.currentOperand.includes('.'))
@@ -79,6 +77,7 @@ const reducer = (state, { type, payload }) => {
           previousOperand: state.currentOperand,
           operation: payload.operator,
           currentOperand: '',
+          prevent: false,
         };
       // Calculate if clicked on with previousOperand and currentOperand existing
       else {
@@ -98,11 +97,11 @@ const reducer = (state, { type, payload }) => {
 
     case ACTIONS.DELETE_DIGIT:
       // Prevent DEL on evaluated calculations
-      if (state.overwrite)
+      if (state.prevent)
         return {
           ...state,
           currentOperand: initialState.currentOperand,
-          overwrite: false,
+          prevent: false,
         };
       // Do nothing if no currentOperand
       else if (state.currentOperand === initialState.currentOperand)
@@ -141,7 +140,7 @@ const reducer = (state, { type, payload }) => {
           currentOperand: evaluation,
           previousOperand: initialState.previousOperand,
           operation: initialState.operation,
-          overwrite: true,
+          prevent: true,
         };
       }
 
