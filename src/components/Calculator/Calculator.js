@@ -65,8 +65,9 @@ const reducer = (state, { type, payload }) => {
 
     case ACTIONS.SELECT_OPERATION:
       if (
-        state.currentOperand === initialState.currentOperand &&
-        state.previousOperand === initialState.previousOperand
+        (state.currentOperand === initialState.currentOperand &&
+          state.previousOperand === initialState.previousOperand) ||
+        state.currentOperand === 'Error'
       )
         return state;
       // Allows changing of operation mid-calculation

@@ -11,6 +11,6 @@
 }
 
 .mode-btn:hover,
-.mode-btn:focus {
+.mode-btn:focus-visible {
   background-color: #464646;
 }

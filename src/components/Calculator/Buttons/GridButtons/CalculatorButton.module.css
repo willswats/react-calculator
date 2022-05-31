@@ -9,7 +9,7 @@
 }
 
 .calculator-btn:hover,
-.calculator-btn:focus {
+.calculator-btn:focus-visible {
   background-color: #464646;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .orange:hover,
-.orange:focus {
+.orange:focus-visible {
   background-color: #bd7800;
 }
 
