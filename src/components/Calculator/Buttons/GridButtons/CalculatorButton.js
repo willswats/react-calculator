@@ -33,12 +33,26 @@ const CalculatorButton = ({ dispatch, type, content }) => {
       className={`
       ${classes['calculator-btn']} 
       ${content === '0' ? classes['calculator-btn--large'] : ''}
-      ${content === '/' ? classes['orange'] : ''}
-      ${content === '*' ? classes['orange'] : ''}
-      ${content === '-' ? classes['orange'] : ''}
-      ${content === '+' ? classes['orange'] : ''}
-      ${content === '=' ? classes['orange'] : ''}
       ${pressed ? classes['calculator-btn--pressed'] : ''} 
+      ${
+        content === '/' ||
+        content === '*' ||
+        content === '-' ||
+        content === '+' ||
+        content === '='
+          ? classes['orange']
+          : ''
+      }
+      ${
+        (content === '/' ||
+          content === '*' ||
+          content === '-' ||
+          content === '+' ||
+          content === '=') &&
+        pressed
+          ? classes['orange--pressed']
+          : ''
+      } 
       `}
       onClick={() => dispatch({ type, payload: { content } })}
     >

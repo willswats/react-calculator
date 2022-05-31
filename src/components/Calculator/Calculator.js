@@ -62,8 +62,9 @@ const reducer = (state, { type, payload }) => {
 
     case ACTIONS.SELECT_OPERATION:
       if (
-        state.currentOperand === initialState.currentOperand &&
-        state.previousOperand === initialState.previousOperand
+        (state.currentOperand === initialState.currentOperand &&
+          state.previousOperand === initialState.previousOperand) ||
+        isNaN(state.currentOperand)
       )
         return state;
       // Allows changing of operation mid-calculation
@@ -120,6 +121,7 @@ const reducer = (state, { type, payload }) => {
     case ACTIONS.EVALUATE:
       if (
         state.currentOperand === '' ||
+        isNaN(state.currentOperand) ||
         state.previousOperand === initialState.previousOperand ||
         state.operation === initialState.operation
       )
