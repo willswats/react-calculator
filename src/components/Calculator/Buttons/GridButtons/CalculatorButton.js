@@ -10,9 +10,10 @@ const CalculatorButton = ({ dispatch, type, content }) => {
       if (event.key === content) {
         setPressed(true);
         dispatch({ type, payload: { content } });
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           setPressed(false);
         }, 100);
+        clearTimeout(timer);
       }
     },
     [dispatch, type, content]
