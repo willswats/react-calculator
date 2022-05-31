@@ -33,21 +33,6 @@ const initialState = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      // Ensure dot cannot be entered when currentOperand is empty
-      if (state.currentOperand === '' && payload.content === '.') {
-        return {
-          ...state,
-          currentOperand: `0${payload.content}`,
-        };
-      }
-      // Ensure dot cannot be entered on overwrite
-      if (state.overwrite && payload.content === '.') {
-        return {
-          ...state,
-          currentOperand: `0${payload.content}`,
-          overwrite: false,
-        };
-      }
       // Overwrite evaluation
       if (state.overwrite) {
         return {
@@ -63,12 +48,16 @@ const reducer = (state, { type, payload }) => {
       ) {
         return state;
         // Overwrite initialState to get rid of '0'
-      } else if (payload.content > '0' && state.currentOperand === '0')
+      } else if (
+        (payload.content > '0' &&
+          state.currentOperand === initialState.currentOperand) ||
+        (payload.content === '.' &&
+          state.currentOperand === initialState.currentOperand)
+      )
         return {
           ...state,
           currentOperand: `${payload.content}`,
         };
-      // If less than 0
       return {
         ...state,
         currentOperand: `${state.currentOperand}${payload.content}`,
@@ -76,9 +65,8 @@ const reducer = (state, { type, payload }) => {
 
     case ACTIONS.SELECT_OPERATION:
       if (
-        (state.currentOperand === initialState.currentOperand &&
-          state.previousOperand === initialState.previousOperand) ||
-        parseFloat(state.currentOperand) <= 0
+        state.currentOperand === initialState.currentOperand &&
+        state.previousOperand === initialState.previousOperand
       )
         return state;
       // Allows changing of operation mid-calculation
@@ -130,14 +118,23 @@ const reducer = (state, { type, payload }) => {
       }
 
     case ACTIONS.EVALUATE:
+      const evaluation = evaluate(state);
       if (
         state.currentOperand === '' ||
         state.previousOperand === initialState.previousOperand ||
         state.operation === initialState.operation
       )
         return state;
-      else {
-        const evaluation = evaluate(state);
+      // Don't update history if error
+      if (isNaN(evaluation)) {
+        return {
+          ...state,
+          currentOperand: evaluation,
+          previousOperand: initialState.previousOperand,
+          operation: initialState.operation,
+          overwrite: true,
+        };
+      } else {
         return {
           ...state,
           history: [

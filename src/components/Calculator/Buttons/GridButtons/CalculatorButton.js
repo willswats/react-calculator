@@ -13,6 +13,7 @@ const CalculatorButton = ({ dispatch, type, content }) => {
         const timer = setTimeout(() => {
           setPressed(false);
         }, 100);
+        timer();
         clearTimeout(timer);
       }
     },

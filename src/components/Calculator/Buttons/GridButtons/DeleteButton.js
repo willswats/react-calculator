@@ -15,6 +15,7 @@ const DeleteButton = ({ dispatch }) => {
         const timer = setTimeout(() => {
           setPressed(false);
         }, 100);
+        timer();
         clearTimeout(timer);
       }
     },
