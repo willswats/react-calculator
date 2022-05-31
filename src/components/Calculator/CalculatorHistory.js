@@ -4,10 +4,10 @@ const CalculatorHistory = ({ state }) => {
   return (
     <ul className={classes['history']}>
       {state.history.map(
-        ({ firstOperands, secondOperands, operation, evaluation, key }) => (
-          <li className={classes['history__item']} key={key}>
+        ({ firstOperand, secondOperand, operation, evaluation }, index) => (
+          <li className={classes['history__item']} key={index}>
             <div className={classes['history__operands']}>
-              {`${firstOperands} ${operation} ${secondOperands}`}
+              {`${firstOperand} ${operation} ${secondOperand}`}
             </div>
             <div className={classes['history__evaluation']}>{evaluation}</div>
           </li>

@@ -1,5 +1,4 @@
 import { useReducer, useState } from 'react';
-import { v4 as uuid } from 'uuid';
 
 import ModeButton from './Buttons/ModeButton';
 import CalculatorHistory from './CalculatorHistory';
@@ -34,43 +33,52 @@ const initialState = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      // Do not allow more than one '.'
-      if (payload.content === '.' && state.currentOperand.includes('.'))
-        return state;
-      // No more than one '0' if already '0'
-      else if (payload.content === '0' && state.currentOperand === '0')
-        return state;
-      // Override existing '0' if greater than '0'
-      else if (payload.content > '0' && state.currentOperand === '0')
+      // Ensure dot cannot be entered when currentOperand is empty
+      if (state.currentOperand === '' && payload.content === '.') {
         return {
           ...state,
-          currentOperand: `${payload.content}`,
+          currentOperand: `0${payload.content}`,
         };
-      // Prevent adding to evaluated calculation
-      if (payload.content === '.' && state.overwrite) {
+      }
+      // Ensure dot cannot be entered on overwrite
+      if (state.overwrite && payload.content === '.') {
         return {
           ...state,
           currentOperand: `0${payload.content}`,
           overwrite: false,
         };
-      } else if (state.overwrite)
+      }
+      // Overwrite evaluation
+      if (state.overwrite) {
         return {
           ...state,
           currentOperand: payload.content,
           overwrite: false,
         };
-      else {
+      }
+      // Do not allow more than one '.' or '0'
+      if (
+        (payload.content === '.' && state.currentOperand.includes('.')) ||
+        (payload.content === '0' && state.currentOperand === '0')
+      ) {
+        return state;
+        // Overwrite initialState to get rid of '0'
+      } else if (payload.content > '0' && state.currentOperand === '0')
         return {
           ...state,
-          currentOperand: `${state.currentOperand}${payload.content}`,
+          currentOperand: `${payload.content}`,
         };
-      }
+      // If less than 0
+      return {
+        ...state,
+        currentOperand: `${state.currentOperand}${payload.content}`,
+      };
 
     case ACTIONS.SELECT_OPERATION:
       if (
         (state.currentOperand === initialState.currentOperand &&
           state.previousOperand === initialState.previousOperand) ||
-        state.currentOperand === '0.'
+        parseFloat(state.currentOperand) <= 0
       )
         return state;
       // Allows changing of operation mid-calculation
@@ -88,14 +96,12 @@ const reducer = (state, { type, payload }) => {
           currentOperand: '',
         };
       // Calculate if clicked on with previousOperand and currentOperand existing
-      else {
-        return {
-          ...state,
-          previousOperand: evaluate(state),
-          operation: payload.content,
-          currentOperand: '',
-        };
-      }
+      return {
+        ...state,
+        previousOperand: evaluate(state),
+        operation: payload.content,
+        currentOperand: '',
+      };
 
     case ACTIONS.ALL_CLEAR:
       return {
@@ -112,8 +118,7 @@ const reducer = (state, { type, payload }) => {
           overwrite: false,
         };
       // Do nothing if no currentOperand
-      else if (state.currentOperand === initialState.currentOperand)
-        return state;
+      if (state.currentOperand === initialState.currentOperand) return state;
       // Set back to initialState if 1 in length
       else if (state.currentOperand.length === 1)
         return { ...state, currentOperand: initialState.currentOperand };
@@ -127,7 +132,6 @@ const reducer = (state, { type, payload }) => {
     case ACTIONS.EVALUATE:
       if (
         state.currentOperand === '' ||
-        isNaN(state.currentOperand) ||
         state.previousOperand === initialState.previousOperand ||
         state.operation === initialState.operation
       )
@@ -138,9 +142,8 @@ const reducer = (state, { type, payload }) => {
           ...state,
           history: [
             {
-              key: uuid(),
-              firstOperands: state.previousOperand,
-              secondOperands: state.currentOperand,
+              firstOperand: state.previousOperand,
+              secondOperand: state.currentOperand,
               operation: state.operation,
               evaluation: evaluation,
             },
@@ -152,7 +155,6 @@ const reducer = (state, { type, payload }) => {
           overwrite: true,
         };
       }
-
     default:
       return state;
   }
