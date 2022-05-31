@@ -34,15 +34,8 @@ const initialState = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      // Prevent adding to evaluated calculation
-      if (state.overwrite)
-        return {
-          ...state,
-          currentOperand: payload.content,
-          overwrite: false,
-        };
       // Do not allow more than one '.'
-      else if (payload.content === '.' && state.currentOperand.includes('.'))
+      if (payload.content === '.' && state.currentOperand.includes('.'))
         return state;
       // No more than one '0' if already '0'
       else if (payload.content === '0' && state.currentOperand === '0')
@@ -52,6 +45,19 @@ const reducer = (state, { type, payload }) => {
         return {
           ...state,
           currentOperand: `${payload.content}`,
+        };
+      // Prevent adding to evaluated calculation
+      if (payload.content === '.' && state.overwrite) {
+        return {
+          ...state,
+          currentOperand: `0${payload.content}`,
+          overwrite: false,
+        };
+      } else if (state.overwrite)
+        return {
+          ...state,
+          currentOperand: payload.content,
+          overwrite: false,
         };
       else {
         return {
@@ -64,7 +70,7 @@ const reducer = (state, { type, payload }) => {
       if (
         (state.currentOperand === initialState.currentOperand &&
           state.previousOperand === initialState.previousOperand) ||
-        isNaN(state.currentOperand)
+        state.currentOperand === '0.'
       )
         return state;
       // Allows changing of operation mid-calculation
