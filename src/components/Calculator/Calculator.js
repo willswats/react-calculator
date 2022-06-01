@@ -79,19 +79,24 @@ const reducer = (state, { type, payload }) => {
       }
     case ACTIONS.SELECT_OPERATION:
       if (
+        (payload.content === '-' &&
+          state.currentOperand === initialState.currentOperand) ||
+        (payload.content === '-' && state.currentOperand === '')
+      ) {
+        return {
+          ...state,
+          currentOperand: `-`,
+        };
+      } else if (isNaN(state.currentOperand)) {
+        return state;
+      } else if (state.operation) {
+        return state;
+      } else if (
         (state.currentOperand === initialState.currentOperand &&
           state.previousOperand === initialState.previousOperand) ||
         state.currentOperand === 'Error'
       )
         return state;
-      // Allows changing of operation mid-calculation
-      else if (state.currentOperand === '') {
-        return {
-          ...state,
-          operation: payload.content,
-        };
-      }
-      // Set previousOperand if none
       else if (state.previousOperand === initialState.previousOperand) {
         return {
           ...state,
