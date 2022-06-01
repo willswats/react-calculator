@@ -13,10 +13,6 @@
 html,
 body {
   color: #fff;
-  background: rgb(220, 140, 0);
-  background: linear-gradient(
-    145deg,
-    rgba(220, 140, 0, 1) 0%,
-    rgba(43, 43, 43, 1) 100%
-  );
+  background: linear-gradient(-45deg, #2b2b2b, #dc8c00);
+  background-color: #dc8c00;
 }
