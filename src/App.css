@@ -16,3 +16,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 500px) {
+  .calculator-container {
+    justify-content: flex-start;
+  }
+}
