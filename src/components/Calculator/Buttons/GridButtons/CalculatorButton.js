@@ -1,36 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import useKeyboard from '../../../../hooks/useKeyboard';
 
 import classes from './CalculatorButton.module.css';
 
-const CalculatorButton = ({ dispatch, type, content }) => {
-  const [pressed, setPressed] = useState(false);
-
-  const handleKeyPress = useCallback(
-    (event) => {
-      if (event.key === content) {
-        setPressed(true);
-        dispatch({ type, payload: { content } });
-      }
-    },
-    [dispatch, type, content]
-  );
-
-  useEffect(() => {
-    // Set pressed timer
-    const timer = setTimeout(() => {
-      setPressed(false);
-    }, 100);
-
-    // Attach the event listener
-    document.addEventListener('keydown', handleKeyPress);
-
-    return () => {
-      // Remove the event listener
-      document.removeEventListener('keydown', handleKeyPress);
-      // Clear pressed timer
-      clearTimeout(timer);
-    };
-  }, [handleKeyPress, pressed]);
+const CalculatorButton = ({ dispatch, dispatchType, content }) => {
+  const pressed = useKeyboard(dispatch, dispatchType, content);
 
   return (
     <button
@@ -58,7 +31,7 @@ const CalculatorButton = ({ dispatch, type, content }) => {
           : ''
       } 
       `}
-      onClick={() => dispatch({ type, payload: { content } })}
+      onClick={() => dispatch({ dispatchType, payload: { content } })}
     >
       {content}
     </button>
