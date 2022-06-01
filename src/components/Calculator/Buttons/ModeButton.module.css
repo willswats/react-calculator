@@ -14,3 +14,7 @@
 .mode-btn:focus-visible {
   background-color: #464646;
 }
+
+.mode-btn--pressed {
+  background-color: #464646;
+}

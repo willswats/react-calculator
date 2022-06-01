@@ -10,23 +10,27 @@ const CalculatorButton = ({ dispatch, type, content }) => {
       if (event.key === content) {
         setPressed(true);
         dispatch({ type, payload: { content } });
-        setTimeout(() => {
-          setPressed(false);
-        }, 100);
       }
     },
     [dispatch, type, content]
   );
 
   useEffect(() => {
-    // attach the event listener
+    // Set pressed timer
+    const timer = setTimeout(() => {
+      setPressed(false);
+    }, 100);
+
+    // Attach the event listener
     document.addEventListener('keydown', handleKeyPress);
 
-    // remove the event listener
     return () => {
+      // Remove the event listener
       document.removeEventListener('keydown', handleKeyPress);
+      // Clear pressed timer
+      clearTimeout(timer);
     };
-  }, [handleKeyPress]);
+  }, [handleKeyPress, pressed]);
 
   return (
     <button

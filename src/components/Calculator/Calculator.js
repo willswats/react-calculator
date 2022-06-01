@@ -33,12 +33,27 @@ const initialState = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
+      // Ensure '.' always has '0' in front
+      if (state.overwrite && payload.content === '.') {
+        return {
+          ...state,
+          currentOperand: `0${payload.content}`,
+          overwrite: false,
+        };
+      }
       // Overwrite evaluation
       if (state.overwrite) {
         return {
           ...state,
           currentOperand: payload.content,
           overwrite: false,
+        };
+      }
+      // Ensure '.' always has '0' in front
+      if (payload.content === '.' && state.currentOperand === '') {
+        return {
+          ...state,
+          currentOperand: `0${payload.content}`,
         };
       }
       // Do not allow more than one '.' or '0'

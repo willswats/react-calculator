@@ -12,23 +12,27 @@ const DeleteButton = ({ dispatch }) => {
       if (event.key === 'Backspace') {
         setPressed(true);
         dispatch({ type: ACTIONS.DELETE_DIGIT });
-        setTimeout(() => {
-          setPressed(false);
-        }, 100);
       }
     },
     [dispatch]
   );
 
   useEffect(() => {
-    // attach the event listener
+    // Set pressed timer
+    const timer = setTimeout(() => {
+      setPressed(false);
+    }, 100);
+
+    // Attach the event listener
     document.addEventListener('keydown', handleKeyPress);
 
-    // remove the event listener
     return () => {
+      // Remove the event listener
       document.removeEventListener('keydown', handleKeyPress);
+      // Clear pressed timer
+      clearTimeout(timer);
     };
-  }, [handleKeyPress]);
+  }, [handleKeyPress, pressed]);
 
   return (
     <button
