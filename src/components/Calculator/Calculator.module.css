@@ -10,7 +10,6 @@
 
 @media screen and (max-width: 500px) {
   .calculator {
-    width: 20rem;
-    height: 30rem;
+    width: 100%;
   }
 }
