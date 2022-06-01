@@ -33,84 +33,86 @@ const initialState = {
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      // Ensure '.' always has '0' in front
-      if (state.overwrite && payload.content === '.') {
-        return {
-          ...state,
-          currentOperand: `0${payload.content}`,
-          overwrite: false,
-        };
-      }
-      // Overwrite evaluation
+      // Overwrite after evaluation
       if (state.overwrite) {
+        if (payload.content === '.') {
+          return {
+            ...state,
+            currentOperand: `0${payload.content}`,
+            overwrite: false,
+          };
+        } else {
+          return {
+            ...state,
+            currentOperand: payload.content,
+            overwrite: false,
+          };
+        }
+      }
+      // Do not allow multiple '.'
+      if (payload.content === '.') {
+        if (state.currentOperand === '') {
+          return {
+            ...state,
+            currentOperand: `0${payload.content}`,
+          };
+        } else if (state.currentOperand.includes('.')) {
+          return state;
+        }
+      }
+      // Do not allow multiple '0'
+      if (payload.content === '0' && state.currentOperand === '0') {
+        return state;
+      }
+      // Overwrite initial '0' if greater
+      if (payload.content > '0' && state.currentOperand === '0') {
         return {
           ...state,
           currentOperand: payload.content,
-          overwrite: false,
         };
       }
-      // Ensure '.' always has '0' in front
-      if (payload.content === '.' && state.currentOperand === '') {
-        return {
-          ...state,
-          currentOperand: `0${payload.content}`,
-        };
-      }
-      // Do not allow more than one '.' or '0'
-      else if (
-        (payload.content === '.' && state.currentOperand.includes('.')) ||
-        (payload.content === '0' && state.currentOperand === '0')
-      ) {
-        return state;
-        // Overwrite initialState to get rid of '0'
-      } else if (
-        payload.content > '0' &&
-        state.currentOperand === initialState.currentOperand
-      ) {
-        return {
-          ...state,
-          currentOperand: `${payload.content}`,
-        };
-      } else {
-        return {
-          ...state,
-          currentOperand: `${state.currentOperand}${payload.content}`,
-        };
-      }
+      // Append otherwise
+      return {
+        ...state,
+        currentOperand: `${state.currentOperand}${payload.content}`,
+      };
     case ACTIONS.SELECT_OPERATION:
+      // Allow negative numbers
+      if (payload.content === '-') {
+        if (state.currentOperand === '0' || state.currentOperand === '') {
+          return {
+            ...state,
+            currentOperand: `-`,
+          };
+        }
+      }
+      // If erroneous or zero, then return
       if (
-        (payload.content === '-' &&
-          state.currentOperand === initialState.currentOperand) ||
-        (payload.content === '-' && state.currentOperand === '')
-      ) {
-        return {
-          ...state,
-          currentOperand: `-`,
-        };
-      } else if (
         (state.currentOperand === initialState.currentOperand &&
           state.previousOperand === initialState.previousOperand) ||
+        state.currentOperand === '' ||
         state.currentOperand === 'Error' ||
         isNaN(state.currentOperand) ||
-        state.operation
-      )
+        parseFloat(state.currentOperand) === 0
+      ) {
         return state;
-      else if (state.previousOperand === initialState.previousOperand) {
+      }
+      // If there is no previousOperand, then set it
+      if (state.previousOperand === initialState.previousOperand) {
         return {
           ...state,
           previousOperand: state.currentOperand,
           operation: payload.content,
           currentOperand: '',
         };
-      } else {
-        return {
-          ...state,
-          previousOperand: evaluate(state),
-          operation: payload.content,
-          currentOperand: '',
-        };
       }
-
+      // Otherwise evaluate state in previousOperand
+      return {
+        ...state,
+        previousOperand: evaluate(state),
+        operation: payload.content,
+        currentOperand: '',
+      };
     case ACTIONS.ALL_CLEAR:
       return {
         ...initialState,
@@ -122,28 +124,28 @@ const reducer = (state, { type, payload }) => {
       if (state.overwrite)
         return {
           ...state,
-          currentOperand: initialState.currentOperand,
+          currentOperand: '0',
           overwrite: false,
         };
       // Do nothing if no currentOperand
-      else if (state.currentOperand === initialState.currentOperand)
-        return state;
+      if (state.currentOperand === '') return state;
       // Set back to initialState if 1 in length
-      else if (state.currentOperand.length === 1)
-        return { ...state, currentOperand: initialState.currentOperand };
-      else {
-        return {
-          ...state,
-          currentOperand: state.currentOperand.slice(0, -1),
-        };
-      }
+      if (state.currentOperand.length === 1)
+        return { ...state, currentOperand: '0' };
+
+      // Otherwise slice from end
+      return {
+        ...state,
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
 
     case ACTIONS.EVALUATE:
       const evaluation = evaluate(state);
+      // If any are empty, return
       if (
         state.currentOperand === '' ||
-        state.previousOperand === initialState.previousOperand ||
-        state.operation === initialState.operation
+        state.previousOperand === '' ||
+        state.operation === ''
       )
         return state;
       // Don't update history if error
@@ -151,13 +153,14 @@ const reducer = (state, { type, payload }) => {
         return {
           ...state,
           currentOperand: evaluation,
-          previousOperand: initialState.previousOperand,
-          operation: initialState.operation,
+          previousOperand: '',
+          operation: '',
           overwrite: true,
         };
       } else {
         return {
           ...state,
+          // Set history
           history: [
             {
               firstOperand: state.previousOperand,
@@ -167,9 +170,10 @@ const reducer = (state, { type, payload }) => {
             },
             ...state.history,
           ],
+          // Set evaluation
           currentOperand: evaluation,
-          previousOperand: initialState.previousOperand,
-          operation: initialState.operation,
+          previousOperand: '',
+          operation: '',
           overwrite: true,
         };
       }
