@@ -13,5 +13,10 @@
 html,
 body {
   color: #fff;
-  background-color: #a96b00;
+  background: rgb(220, 140, 0);
+  background: linear-gradient(
+    145deg,
+    rgba(220, 140, 0, 1) 0%,
+    rgba(43, 43, 43, 1) 100%
+  );
 }
