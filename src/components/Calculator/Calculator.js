@@ -87,14 +87,12 @@ const reducer = (state, { type, payload }) => {
           ...state,
           currentOperand: `-`,
         };
-      } else if (isNaN(state.currentOperand)) {
-        return state;
-      } else if (state.operation) {
-        return state;
       } else if (
         (state.currentOperand === initialState.currentOperand &&
           state.previousOperand === initialState.previousOperand) ||
-        state.currentOperand === 'Error'
+        state.currentOperand === 'Error' ||
+        isNaN(state.currentOperand) ||
+        state.operation
       )
         return state;
       else if (state.previousOperand === initialState.previousOperand) {
