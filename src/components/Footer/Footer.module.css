@@ -1,6 +1,8 @@
 .footer {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .icon {
@@ -11,10 +13,4 @@
 .link {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-}
-
-@media screen and (max-width: 500px) {
-  .footer {
-    display: none;
-  }
 }
