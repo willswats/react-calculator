@@ -145,7 +145,8 @@ const reducer = (state, { type, payload }) => {
       if (
         state.currentOperand === '' ||
         state.previousOperand === '' ||
-        state.operation === ''
+        state.operation === '' ||
+        isNaN(state.currentOperand)
       )
         return state;
       // Don't update history if error

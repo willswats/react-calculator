@@ -13,5 +13,6 @@
 html,
 body {
   color: #fff;
-  background-color: #aa700c;
+  background-image: linear-gradient(#dc8c00, #2b2b2b);
+  background-color: #2b2b2b;
 }
