@@ -14,7 +14,10 @@ const DropDownMenu = ({ dropDown, setDropDown }) => {
         <ol>History - Arrow right</ol>
         <ol>Calculator - Arrow left</ol>
       </li>
-      <p>The others correspond to the exact keys on the keyboard.</p>
+      <p>
+        All the other keyboard shortcuts correspond to the exact keys on the
+        keyboard.
+      </p>
     </div>
   );
 };
