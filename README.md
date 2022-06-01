@@ -11,7 +11,7 @@ A calculator application built with React.
 
 ## General Information
 
-I built this project to further familiarise myself with React hooks, such as `useState` and `useContext`.
+I built this project to further familiarise myself with React hooks, such as `useState` and `useReducer`.
 
 ## Features
 
