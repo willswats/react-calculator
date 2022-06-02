@@ -20,7 +20,7 @@ I built this project to further familiarise myself with React hooks, such as `us
 - Delete one digit from the calculator output (DEL)
 - View the calculation history
 - Select calculations from the history
-- Keyboard shortcuts
+- Keyboard shortcuts for every button on the calculator
 
 ## Setup
 

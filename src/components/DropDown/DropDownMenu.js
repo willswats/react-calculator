@@ -13,6 +13,8 @@ const DropDownMenu = ({ dropDown, setDropDown }) => {
         <ol>DEL - Backspace</ol>
         <ol>History - Arrow right</ol>
         <ol>Calculator - Arrow left</ol>
+        <ol>History down - Arrow down</ol>
+        <ol>History up - Arrow up</ol>
       </li>
       <p>
         All the other keyboard shortcuts correspond to the exact keys on the
