@@ -21,6 +21,7 @@ export const ACTIONS = {
   DELETE_DIGIT: 'delete-digit',
   EVALUATE: 'evaluate',
   SET_MODE: 'set-mode',
+  SET_CALCULATION: 'set-calculation',
 };
 
 const initialState = {
@@ -199,6 +200,13 @@ const reducer = (state, { type, payload }) => {
         };
       }
       break;
+    case ACTIONS.SET_CALCULATION:
+      return {
+        ...state,
+        currentOperand: payload.evaluation,
+        overwrite: false,
+        mode: MODES.CALCULATOR,
+      };
     default:
       return state;
   }
@@ -210,7 +218,9 @@ const Calculator = () => {
   return (
     <div className={classes['calculator']}>
       <CalculatorModeButton state={state} dispatch={dispatch} />
-      {state.mode === MODES.HISTORY && <CalculatorHistory state={state} />}
+      {state.mode === MODES.HISTORY && (
+        <CalculatorHistory state={state} dispatch={dispatch} />
+      )}
       {state.mode === MODES.CALCULATOR && (
         <>
           <CalculatorOutput state={state} />

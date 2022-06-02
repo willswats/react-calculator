@@ -1,16 +1,27 @@
 import classes from './CalculatorHistory.module.css';
 
-const CalculatorHistory = ({ state }) => {
+import { ACTIONS } from './Calculator';
+
+const CalculatorHistory = ({ state, dispatch }) => {
   return (
     <ul className={classes['history']}>
       {state.history.map(
         ({ firstOperand, secondOperand, operation, evaluation }, index) => (
-          <li className={classes['history__item']} key={index}>
+          <button
+            onClick={() =>
+              dispatch({
+                type: ACTIONS.SET_CALCULATION,
+                payload: { firstOperand, secondOperand, operation, evaluation },
+              })
+            }
+            className={classes['history__btn']}
+            key={index}
+          >
             <div className={classes['history__operands']}>
               {`${firstOperand} ${operation} ${secondOperand}`}
             </div>
             <div className={classes['history__evaluation']}>{evaluation}</div>
-          </li>
+          </button>
         )
       )}
     </ul>

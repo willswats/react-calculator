@@ -10,7 +10,7 @@ const useKeyboard = (shortcut, dispatch, dispatchType, payload = null) => {
         dispatch({ type: dispatchType, payload: payload });
       }
     },
-    [dispatch, dispatchType, payload, shortcut]
+    [shortcut, dispatch, dispatchType, payload]
   );
 
   useEffect(() => {

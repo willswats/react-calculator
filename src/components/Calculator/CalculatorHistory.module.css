@@ -2,23 +2,31 @@
   margin: 0;
   padding: 0;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.history__item {
+.history__btn {
   word-wrap: break-word;
   word-break: break-all;
   text-align: end;
-  list-style: none;
-  font-size: 2rem;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 1px solid #414141;
+  background-color: #2b2b2b;
+  cursor: pointer;
+  outline: none;
 }
 
-.history__item:first-child {
+.history__btn:hover,
+.history__btn:focus-visible {
+  background-color: #464646;
+}
+
+.history__btn:first-child {
   border-top: 0;
 }
 
-.history__item:last-child {
+.history__btn:last-child {
   border-bottom: 2px solid #414141;
 }
 
@@ -29,4 +37,5 @@
 
 .history__evaluation {
   font-size: 1.8rem;
+  color: #fff;
 }
