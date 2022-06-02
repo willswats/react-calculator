@@ -9,6 +9,7 @@ const CalculatorHistory = ({ state, dispatch }) => {
   const counterRef = useRef(-1);
 
   const handleKeyPress = useCallback((event) => {
+    event.preventDefault();
     if (event.key === 'ArrowDown') {
       if (buttonRefs.current[counterRef.current + 1] !== undefined) {
         counterRef.current += 1;
