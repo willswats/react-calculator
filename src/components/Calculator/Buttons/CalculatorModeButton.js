@@ -1,6 +1,6 @@
 import useKeyboard from '../../../hooks/useKeyboard';
 
-import classes from './ModeButton.module.css';
+import classes from './CalculatorModeButton.module.css';
 
 import { ACTIONS, MODES } from '../Calculator';
 

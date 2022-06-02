@@ -1,15 +1,19 @@
-import useKeyboard from '../../../../hooks/useKeyboard';
+import useKeyboard from '../../../hooks/useKeyboard';
 
 import classes from './CalculatorButton.module.css';
 
-const CalculatorButton = ({ content, dispatch, dispatchType }) => {
-  const pressed = useKeyboard(content, dispatch, dispatchType, { content });
+const CalculatorButton = ({ shortcut, content, dispatch, dispatchType }) => {
+  const pressed = useKeyboard(shortcut, dispatch, dispatchType, { content });
 
   return (
     <button
       className={`
       ${classes['calculator-btn']} 
-      ${content === '0' ? classes['calculator-btn--large'] : ''}
+      ${
+        content === '0' || content === 'AC'
+          ? classes['calculator-btn--large']
+          : ''
+      }
       ${pressed ? classes['calculator-btn--pressed'] : ''} 
       ${
         content === '/' ||

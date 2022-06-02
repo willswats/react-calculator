@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-import ModeButton from './Buttons/ModeButton';
+import CalculatorModeButton from './Buttons/CalculatorModeButton';
 import CalculatorHistory from './CalculatorHistory';
 import CalculatorOutput from './CalculatorOutput';
 import CalculatorGrid from './CalculatorGrid';
@@ -204,7 +204,7 @@ const Calculator = () => {
 
   return (
     <div className={classes['calculator']}>
-      <ModeButton state={state} dispatch={dispatch} />
+      <CalculatorModeButton state={state} dispatch={dispatch} />
       {state.mode === MODES.HISTORY && <CalculatorHistory state={state} />}
       {state.mode === MODES.CALCULATOR && (
         <>

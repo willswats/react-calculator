@@ -1,16 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useKeyboard = (key, dispatch, dispatchType, payload = null) => {
+const useKeyboard = (shortcut, dispatch, dispatchType, payload = null) => {
   const [pressed, setPressed] = useState(false);
 
   const handleKeyPress = useCallback(
     (event) => {
-      if (event.key === key) {
+      if (event.key === shortcut) {
         setPressed(true);
         dispatch({ type: dispatchType, payload: payload });
       }
     },
-    [dispatch, dispatchType, payload, key]
+    [dispatch, dispatchType, payload, shortcut]
   );
 
   useEffect(() => {
