@@ -62,9 +62,14 @@ const reducer = (state, { type, payload }) => {
           return state;
         }
       }
-      // Do not allow multiple '0'
-      if (payload.content === '0' && state.currentOperand === '0') {
-        return state;
+      // Do not allow multiple '0' when there is no '.' and is equal to zero
+      if (payload.content === '0') {
+        if (
+          parseFloat(state.currentOperand) === 0 &&
+          !state.currentOperand.includes('.')
+        ) {
+          return state;
+        }
       }
       // Overwrite initial '0' if greater
       if (payload.content > '0' && state.currentOperand === '0') {
