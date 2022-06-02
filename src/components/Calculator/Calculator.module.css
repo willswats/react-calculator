@@ -3,15 +3,15 @@
   flex-direction: column;
   background-color: #2b2b2b;
   border: 2px solid #414141;
-  width: 26rem;
+  width: 24rem;
   height: 38rem;
   transition: 0.5s;
 }
 
 @media screen and (max-width: 500px) {
   .calculator {
-    height: 18rem;
     flex-grow: 1;
+    height: 34rem;
     width: 100%;
   }
 }
