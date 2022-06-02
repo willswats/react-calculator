@@ -2,8 +2,8 @@ import useKeyboard from '../../../../hooks/useKeyboard';
 
 import classes from './CalculatorButton.module.css';
 
-const CalculatorButton = ({ dispatch, dispatchType, content }) => {
-  const pressed = useKeyboard(dispatch, dispatchType, content);
+const CalculatorButton = ({ content, dispatch, dispatchType }) => {
+  const pressed = useKeyboard(content, dispatch, dispatchType, { content });
 
   return (
     <button

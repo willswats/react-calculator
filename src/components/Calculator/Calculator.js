@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 
 import ModeButton from './Buttons/ModeButton';
 import CalculatorHistory from './CalculatorHistory';
@@ -20,6 +20,7 @@ export const ACTIONS = {
   ALL_CLEAR: 'all-clear',
   DELETE_DIGIT: 'delete-digit',
   EVALUATE: 'evaluate',
+  SET_MODE: 'set-mode',
 };
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
   operation: '',
   overwrite: false,
   history: [],
+  mode: MODES.CALCULATOR,
 };
 
 const reducer = (state, { type, payload }) => {
@@ -178,6 +180,19 @@ const reducer = (state, { type, payload }) => {
           overwrite: true,
         };
       }
+    case ACTIONS.SET_MODE:
+      if (payload.mode === MODES.CALCULATOR) {
+        return {
+          ...state,
+          mode: MODES.CALCULATOR,
+        };
+      } else if (payload.mode === MODES.HISTORY) {
+        return {
+          ...state,
+          mode: MODES.HISTORY,
+        };
+      }
+      break;
     default:
       return state;
   }
@@ -186,21 +201,17 @@ const reducer = (state, { type, payload }) => {
 const Calculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [mode, setMode] = useState(MODES.CALCULATOR);
-
   return (
-    <>
-      <div className={classes['calculator']}>
-        <ModeButton mode={mode} setMode={setMode} />
-        {mode === MODES.HISTORY && <CalculatorHistory state={state} />}
-        {mode === MODES.CALCULATOR && (
-          <>
-            <CalculatorOutput state={state} />
-            <CalculatorGrid dispatch={dispatch} />
-          </>
-        )}
-      </div>
-    </>
+    <div className={classes['calculator']}>
+      <ModeButton state={state} dispatch={dispatch} />
+      {state.mode === MODES.HISTORY && <CalculatorHistory state={state} />}
+      {state.mode === MODES.CALCULATOR && (
+        <>
+          <CalculatorOutput state={state} />
+          <CalculatorGrid dispatch={dispatch} />
+        </>
+      )}
+    </div>
   );
 };
 

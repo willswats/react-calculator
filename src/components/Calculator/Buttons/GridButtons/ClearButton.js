@@ -5,7 +5,7 @@ import { ACTIONS } from '../../Calculator';
 import classes from './CalculatorButton.module.css';
 
 const ClearButton = ({ dispatch }) => {
-  const pressed = useKeyboard(dispatch, ACTIONS.ALL_CLEAR, 'Escape');
+  const pressed = useKeyboard('Escape', dispatch, ACTIONS.ALL_CLEAR);
 
   return (
     <button

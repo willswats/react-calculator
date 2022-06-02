@@ -12,14 +12,14 @@ const CalculatorGrid = ({ dispatch }) => {
       <ClearButton dispatch={dispatch} />
       <DeleteButton dispatch={dispatch} />
       <CalculatorButton
+        content="/"
         dispatch={dispatch}
         dispatchType={ACTIONS.SELECT_OPERATION}
-        content="/"
       />
       <CalculatorButton
+        content="7"
         dispatch={dispatch}
         dispatchType={ACTIONS.ADD_DIGIT}
-        content="7"
       />
       <CalculatorButton
         dispatch={dispatch}
@@ -27,72 +27,72 @@ const CalculatorGrid = ({ dispatch }) => {
         content="8"
       />
       <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.ADD_DIGIT}
         content="9"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.ADD_DIGIT}
       />
       <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.SELECT_OPERATION}
         content="*"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.SELECT_OPERATION}
       />
       <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.ADD_DIGIT}
         content="4"
-      />
-      <CalculatorButton
         dispatch={dispatch}
         dispatchType={ACTIONS.ADD_DIGIT}
+      />
+      <CalculatorButton
         content="5"
-      />
-      <CalculatorButton
         dispatch={dispatch}
         dispatchType={ACTIONS.ADD_DIGIT}
+      />
+      <CalculatorButton
         content="6"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.ADD_DIGIT}
       />
       <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.SELECT_OPERATION}
         content="-"
-      />
-      <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.ADD_DIGIT}
-        content="1"
-      />
-
-      <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.ADD_DIGIT}
-        content="2"
-      />
-
-      <CalculatorButton
-        dispatch={dispatch}
-        dispatchType={ACTIONS.ADD_DIGIT}
-        content="3"
-      />
-      <CalculatorButton
         dispatch={dispatch}
         dispatchType={ACTIONS.SELECT_OPERATION}
-        content="+"
       />
       <CalculatorButton
+        content="1"
         dispatch={dispatch}
         dispatchType={ACTIONS.ADD_DIGIT}
-        content="0"
       />
 
       <CalculatorButton
+        content="2"
         dispatch={dispatch}
         dispatchType={ACTIONS.ADD_DIGIT}
-        content="."
+      />
+
+      <CalculatorButton
+        content="3"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.ADD_DIGIT}
       />
       <CalculatorButton
+        content="+"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.SELECT_OPERATION}
+      />
+      <CalculatorButton
+        content="0"
+        dispatch={dispatch}
+        dispatchType={ACTIONS.ADD_DIGIT}
+      />
+
+      <CalculatorButton
+        content="."
+        dispatch={dispatch}
+        dispatchType={ACTIONS.ADD_DIGIT}
+      />
+      <CalculatorButton
+        content="="
         dispatch={dispatch}
         dispatchType={ACTIONS.EVALUATE}
-        content="="
       />
     </div>
   );

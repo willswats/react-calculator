@@ -1,19 +1,25 @@
-import useKeyboardMode from '../../../hooks/useKeyboardMode';
+import useKeyboard from '../../../hooks/useKeyboard';
 
 import classes from './ModeButton.module.css';
 
-import { MODES } from '../Calculator';
+import { ACTIONS, MODES } from '../Calculator';
 
-const CalculatorModeButton = ({ mode, setMode }) => {
-  const pressed = useKeyboardMode(setMode);
+const CalculatorModeButton = ({ state, dispatch }) => {
+  const arrowLeft = useKeyboard('ArrowLeft', dispatch, ACTIONS.SET_MODE, {
+    mode: MODES.CALCULATOR,
+  });
+
+  const arrowRight = useKeyboard('ArrowRight', dispatch, ACTIONS.SET_MODE, {
+    mode: MODES.HISTORY,
+  });
 
   const clickHandler = () => {
-    if (mode === MODES.HISTORY) {
-      setMode(MODES.CALCULATOR);
+    if (state.mode === MODES.HISTORY) {
+      dispatch({ type: ACTIONS.SET_MODE, payload: { mode: MODES.CALCULATOR } });
     }
 
-    if (mode === MODES.CALCULATOR) {
-      setMode(MODES.HISTORY);
+    if (state.mode === MODES.CALCULATOR) {
+      dispatch({ type: ACTIONS.SET_MODE, payload: { mode: MODES.HISTORY } });
     }
   };
 
@@ -21,12 +27,12 @@ const CalculatorModeButton = ({ mode, setMode }) => {
     <button
       className={`
     ${classes['mode-btn']}
-    ${pressed ? classes['mode-btn--pressed'] : ''} 
+    ${arrowLeft || arrowRight ? classes['mode-btn--pressed'] : ''} 
     `}
       onClick={clickHandler}
     >
-      {mode === MODES.CALCULATOR && <>History</>}
-      {mode === MODES.HISTORY && <>Calculator</>}
+      {state.mode === MODES.CALCULATOR && <>History</>}
+      {state.mode === MODES.HISTORY && <>Calculator</>}
     </button>
   );
 };

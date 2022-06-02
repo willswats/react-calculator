@@ -5,7 +5,7 @@ import useKeyboard from '../../../../hooks/useKeyboard';
 import classes from './CalculatorButton.module.css';
 
 const DeleteButton = ({ dispatch }) => {
-  const pressed = useKeyboard(dispatch, ACTIONS.DELETE_DIGIT, 'Backspace');
+  const pressed = useKeyboard('Backspace', dispatch, ACTIONS.DELETE_DIGIT);
 
   return (
     <button
