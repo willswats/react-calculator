@@ -31,7 +31,7 @@ const CalculatorButton = ({ dispatch, dispatchType, content }) => {
           : ''
       } 
       `}
-      onClick={() => dispatch({ dispatchType, payload: { content } })}
+      onClick={() => dispatch({ type: dispatchType, payload: { content } })}
     >
       {content}
     </button>
