@@ -51,7 +51,7 @@ const reducer = (state, { type, payload }) => {
           };
         }
       }
-      // Do not allow multiple '.'
+      // Do not allow multiple '.' and append '0'
       if (payload.content === '.') {
         if (state.currentOperand === '') {
           return {
@@ -79,12 +79,13 @@ const reducer = (state, { type, payload }) => {
         currentOperand: `${state.currentOperand}${payload.content}`,
       };
     case ACTIONS.SELECT_OPERATION:
-      // Allow negative numbers
+      // Allow negative numbers and ensure '-' is not overwritten
       if (payload.content === '-') {
         if (state.currentOperand === '0' || state.currentOperand === '') {
           return {
             ...state,
             currentOperand: `-`,
+            overwrite: false,
           };
         }
       }
