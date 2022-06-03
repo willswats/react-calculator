@@ -9,7 +9,6 @@ import { useRef } from 'react';
 const CalculatorHistory = ({ state, dispatch }) => {
   const buttonRefs = useRef([]);
   useUpDownArrows(buttonRefs);
-  console.log(buttonRefs);
 
   return (
     <ul className={classes['history']}>
@@ -17,7 +16,9 @@ const CalculatorHistory = ({ state, dispatch }) => {
         ({ firstOperand, secondOperand, operation, evaluation }, index) => (
           <button
             ref={(element) => {
-              buttonRefs.current.push(element);
+              if (element !== null && !buttonRefs.current.includes(element)) {
+                buttonRefs.current.push(element);
+              }
             }}
             onClick={() =>
               dispatch({
