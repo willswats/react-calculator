@@ -2,20 +2,10 @@
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 2rem 1.5rem 2rem 1.5rem;
+  padding: 2rem 1rem 2rem 1rem;
   border-radius: 25px;
   color: #000;
   width: 400px;
-}
-
-.dropdown-menu__title {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-
-.dropdown-menu__list {
-  list-style: none;
-  margin-bottom: 0.5rem;
 }
 
 .dropdown-menu__btn {
@@ -37,6 +27,25 @@
   display: inline-block;
   content: '\00d7';
   transform: scale(1.5, 1.5);
+}
+
+.dropdown-menu__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-menu__list {
+  list-style: none;
+}
+
+.dropdown-menu__item {
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-menu__key {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 0.1rem;
 }
 
 @media screen and (max-width: 500px) {
