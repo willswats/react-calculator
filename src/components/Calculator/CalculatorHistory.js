@@ -9,15 +9,22 @@ const CalculatorHistory = ({ state, dispatch }) => {
   const counterRef = useRef(-1);
 
   const handleKeyPress = useCallback((event) => {
-    event.preventDefault();
     if (event.key === 'ArrowDown') {
-      if (buttonRefs.current[counterRef.current + 1] !== undefined) {
+      event.preventDefault();
+      if (
+        buttonRefs.current[counterRef.current + 1] !== undefined &&
+        buttonRefs.current[counterRef.current + 1] !== null
+      ) {
         counterRef.current += 1;
         buttonRefs.current[counterRef.current].focus();
       }
     }
     if (event.key === 'ArrowUp') {
-      if (buttonRefs.current[counterRef.current - 1] !== undefined) {
+      event.preventDefault();
+      if (
+        buttonRefs.current[counterRef.current - 1] !== undefined &&
+        buttonRefs.current[counterRef.current - 1] !== null
+      ) {
         counterRef.current -= 1;
         buttonRefs.current[counterRef.current].focus();
       }
