@@ -9,12 +9,12 @@ const DropDownMenu = ({ dropDown, setDropDown }) => {
       ></button>
       <h1 className={classes['dropdown-menu__title']}>Keyboard shortcuts</h1>
       <li className={classes['dropdown-menu__list']}>
-        <ol>AC - ESC</ol>
-        <ol>DEL - Backspace</ol>
-        <ol>History - Arrow right</ol>
-        <ol>Calculator - Arrow left</ol>
-        <ol>History down - Arrow down</ol>
-        <ol>History up - Arrow up</ol>
+        <ol>ESC - AC</ol>
+        <ol>Backspace - DEL</ol>
+        <ol>Arrow right - History</ol>
+        <ol>Arrow left - Calculator</ol>
+        <ol>Arrow down - History down</ol>
+        <ol>Arrow up - History up</ol>
       </li>
       <p>
         All the other keyboard shortcuts correspond to the exact keys on the
