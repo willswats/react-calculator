@@ -8,7 +8,6 @@ const useKeyboard = (shortcut, dispatch, dispatchType, payload = null) => {
       if (event.key === shortcut) {
         setPressed(true);
         dispatch({ type: dispatchType, payload: payload });
-        console.log(event.repeat);
       }
     },
     [shortcut, dispatch, dispatchType, payload]
