@@ -5,13 +5,25 @@ import classes from './CalculatorModeButton.module.css';
 import { ACTIONS, MODES } from '../Calculator';
 
 const CalculatorModeButton = ({ state, dispatch }) => {
-  const arrowLeft = useKeyboard('ArrowLeft', dispatch, ACTIONS.SET_MODE, {
-    mode: MODES.CALCULATOR,
-  });
+  const arrowLeft = useKeyboard(
+    'ArrowLeft',
+    dispatch,
+    ACTIONS.SET_MODE,
+    {
+      mode: MODES.CALCULATOR,
+    },
+    false
+  );
 
-  const arrowRight = useKeyboard('ArrowRight', dispatch, ACTIONS.SET_MODE, {
-    mode: MODES.HISTORY,
-  });
+  const arrowRight = useKeyboard(
+    'ArrowRight',
+    dispatch,
+    ACTIONS.SET_MODE,
+    {
+      mode: MODES.HISTORY,
+    },
+    false
+  );
 
   const clickHandler = () => {
     if (state.mode === MODES.HISTORY) {
