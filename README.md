@@ -24,10 +24,8 @@ I built this project to further familiarise myself with React hooks, such as `us
 
 ## Setup
 
-1. Clone the repo.
-2. `cd` into the directory.
-3. Run `npm install`.
-4. Run `npm start`.
+1. Run `npm install`.
+2. Run `npm start`.
 
 ## Acknowledgements
 
