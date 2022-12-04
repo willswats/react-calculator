@@ -1,27 +1,32 @@
-import useKeyboard from '../../../hooks/useKeyboard';
+import { useKeyboard } from 'features/calculator';
 
-import classes from './CalculatorButton.module.css';
+import styles from './styles.module.css';
 
-const CalculatorButton = ({ shortcut, content, dispatch, dispatchType }) => {
+export const CalculatorButton = ({
+  shortcut,
+  content,
+  dispatch,
+  dispatchType,
+}) => {
   const pressed = useKeyboard(shortcut, dispatch, dispatchType, { content });
 
   return (
     <button
       className={`
-      ${classes['calculator-btn']} 
+      ${styles['calculator-btn']} 
       ${
         content === '0' || content === 'AC'
-          ? classes['calculator-btn--large']
+          ? styles['calculator-btn--large']
           : ''
       }
-      ${pressed ? classes['calculator-btn--pressed'] : ''} 
+      ${pressed ? styles['calculator-btn--pressed'] : ''} 
       ${
         content === '/' ||
         content === '*' ||
         content === '-' ||
         content === '+' ||
         content === '='
-          ? classes['orange']
+          ? styles['orange']
           : ''
       }
       ${
@@ -31,7 +36,7 @@ const CalculatorButton = ({ shortcut, content, dispatch, dispatchType }) => {
           content === '+' ||
           content === '=') &&
         pressed
-          ? classes['orange--pressed']
+          ? styles['orange--pressed']
           : ''
       } 
       `}
@@ -41,5 +46,3 @@ const CalculatorButton = ({ shortcut, content, dispatch, dispatchType }) => {
     </button>
   );
 };
-
-export default CalculatorButton;

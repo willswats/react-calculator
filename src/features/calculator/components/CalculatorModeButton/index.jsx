@@ -1,10 +1,12 @@
-import useKeyboard from '../../../hooks/useKeyboard';
+// Globals
+import { ACTIONS, MODES } from 'features/calculator';
 
-import classes from './CalculatorModeButton.module.css';
+// Hooks
+import { useKeyboard } from 'features/calculator';
 
-import { ACTIONS, MODES } from '../Calculator';
+import styles from './styles.module.css';
 
-const CalculatorModeButton = ({ state, dispatch }) => {
+export const CalculatorModeButton = ({ state, dispatch }) => {
   const arrowLeft = useKeyboard(
     'ArrowLeft',
     dispatch,
@@ -38,8 +40,8 @@ const CalculatorModeButton = ({ state, dispatch }) => {
   return (
     <button
       className={`
-    ${classes['mode-btn']}
-    ${arrowLeft || arrowRight ? classes['mode-btn--pressed'] : ''} 
+    ${styles['mode-btn']}
+    ${arrowLeft || arrowRight ? styles['mode-btn--pressed'] : ''} 
     `}
       onClick={clickHandler}
     >
@@ -48,5 +50,3 @@ const CalculatorModeButton = ({ state, dispatch }) => {
     </button>
   );
 };
-
-export default CalculatorModeButton;

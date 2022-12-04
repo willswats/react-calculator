@@ -30,3 +30,5 @@ I built this project to further familiarise myself with React hooks, such as `us
 ## Acknowledgements
 
 I used [this](https://www.youtube.com/watch?v=DgRrrOt0Vr8) tutorial from Web Dev Simplified, and then expanded on it with new features, such as the calculator history.
+
+The architecture is inspired by [bulletproof-react](https://github.com/alan2207/bulletproof-react).

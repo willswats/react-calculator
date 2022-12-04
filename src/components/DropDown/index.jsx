@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-import DropDownButton from './DropDownButton';
-import DropDownMenu from './DropDownMenu';
+// Components
+import { DropDownButton, DropDownMenu } from 'components';
 
-import classes from './DropDown.module.css';
+import styles from './styles.module.css';
 
-const DropDown = () => {
+export const DropDown = () => {
   const [dropDown, setDropDown] = useState(false);
 
   return (
-    <div className={classes['dropdown']}>
+    <div className={styles['dropdown']}>
       {!dropDown && (
         <DropDownButton dropDown={dropDown} setDropDown={setDropDown} />
       )}
@@ -19,5 +19,3 @@ const DropDown = () => {
     </div>
   );
 };
-
-export default DropDown;

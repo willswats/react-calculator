@@ -1,4 +1,4 @@
-function evaluate({ currentOperand, previousOperand, operation }) {
+export const evaluate = ({ currentOperand, previousOperand, operation }) => {
   // Convert strings
   const prev = parseFloat(previousOperand);
   const current = parseFloat(currentOperand);
@@ -24,6 +24,4 @@ function evaluate({ currentOperand, previousOperand, operation }) {
       break;
   }
   return computation.toString();
-}
-
-export default evaluate;
+};

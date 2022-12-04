@@ -1,12 +1,14 @@
-import CalculatorButton from './Buttons/CalculatorButton';
+// Components
+import { CalculatorButton } from 'features/calculator';
 
-import { ACTIONS } from './Calculator';
+// Globals
+import { ACTIONS } from 'features/calculator';
 
-import classes from './CalculatorGrid.module.css';
+import styles from './styles.module.css';
 
-const CalculatorGrid = ({ dispatch }) => {
+export const CalculatorGrid = ({ dispatch }) => {
   return (
-    <div className={classes['grid']}>
+    <div className={styles['grid']}>
       <CalculatorButton
         shortcut="Escape"
         content="AC"
@@ -121,5 +123,3 @@ const CalculatorGrid = ({ dispatch }) => {
     </div>
   );
 };
-
-export default CalculatorGrid;
