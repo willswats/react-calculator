@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'Orbitron';
-  src: url('../public/fonts/Orbitron-Regular.ttf');
+  src: url('/fonts/Orbitron-Regular.ttf');
 }
 
 html,

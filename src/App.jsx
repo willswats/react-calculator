@@ -1,8 +1,8 @@
-import './App.css';
+// Components
+import { DropDown, Footer } from 'components';
+import { Calculator } from 'features/calculator';
 
-import Calculator from './components/Calculator/Calculator';
-import DropDown from './components/DropDown/DropDown';
-import Footer from './components/Footer/Footer';
+import './App.css';
 
 const App = () => {
   return (

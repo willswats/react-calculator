@@ -1,6 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react';
 
-const useUpDownArrows = (buttonRefs) => {
+export const useUpDownArrows = (buttonRefs) => {
   const counterRef = useRef(-1);
 
   const handleKeyPress = useCallback(
@@ -39,5 +39,3 @@ const useUpDownArrows = (buttonRefs) => {
     };
   }, [handleKeyPress]);
 };
-
-export default useUpDownArrows;

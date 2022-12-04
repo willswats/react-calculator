@@ -1,17 +1,19 @@
-import classes from './CalculatorHistory.module.css';
-
-import { ACTIONS } from './Calculator';
-
-import useUpDownArrows from '../../hooks/useUpDownArrows';
-
 import { useRef } from 'react';
 
-const CalculatorHistory = ({ state, dispatch }) => {
+// Globals
+import { ACTIONS } from 'features/calculator';
+
+// Hooks
+import { useUpDownArrows } from 'features/calculator';
+
+import styles from './styles.module.css';
+
+export const CalculatorHistory = ({ state, dispatch }) => {
   const buttonRefs = useRef([]);
   useUpDownArrows(buttonRefs);
 
   return (
-    <ul className={classes['history']}>
+    <ul className={styles['history']}>
       {state.history.map(
         ({ firstOperand, secondOperand, operation, evaluation }, index) => (
           <button
@@ -31,18 +33,16 @@ const CalculatorHistory = ({ state, dispatch }) => {
                 },
               })
             }
-            className={classes['history__btn']}
+            className={styles['history__btn']}
             key={index}
           >
-            <div className={classes['history__operands']}>
+            <div className={styles['history__operands']}>
               {`${firstOperand} ${operation} ${secondOperand}`}
             </div>
-            <div className={classes['history__evaluation']}>{evaluation}</div>
+            <div className={styles['history__evaluation']}>{evaluation}</div>
           </button>
         )
       )}
     </ul>
   );
 };
-
-export default CalculatorHistory;

@@ -1,13 +1,17 @@
 import { useReducer } from 'react';
 
-import CalculatorModeButton from './Buttons/CalculatorModeButton';
-import CalculatorHistory from './CalculatorHistory';
-import CalculatorOutput from './CalculatorOutput';
-import CalculatorGrid from './CalculatorGrid';
+// Components
+import {
+  CalculatorModeButton,
+  CalculatorHistory,
+  CalculatorOutput,
+  CalculatorGrid,
+} from 'features/calculator';
 
-import evaluate from '../../helpers/evaluate';
+// Utils
+import { evaluate } from 'features/calculator';
 
-import classes from './Calculator.module.css';
+import styles from './styles.module.css';
 
 export const MODES = {
   CALCULATOR: 'calculator',
@@ -212,11 +216,11 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const Calculator = () => {
+export const Calculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className={classes['calculator']}>
+    <div className={styles['calculator']}>
       <CalculatorModeButton state={state} dispatch={dispatch} />
       {state.mode === MODES.HISTORY && (
         <CalculatorHistory state={state} dispatch={dispatch} />
@@ -230,5 +234,3 @@ const Calculator = () => {
     </div>
   );
 };
-
-export default Calculator;

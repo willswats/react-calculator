@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useKeyboard = (
+export const useKeyboard = (
   shortcut,
   dispatch,
   dispatchType,
@@ -45,4 +45,3 @@ const useKeyboard = (
 
   return pressed;
 };
-export default useKeyboard;
