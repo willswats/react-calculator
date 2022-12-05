@@ -5,7 +5,7 @@
   border: 2px solid #414141;
   width: 24rem;
   height: 38rem;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 @media screen and (max-width: 500px) {
