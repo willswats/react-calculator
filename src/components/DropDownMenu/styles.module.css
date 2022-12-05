@@ -9,6 +9,7 @@
 }
 
 .dropdown-menu__btn {
+  cursor: pointer;
   position: absolute;
   right: 10px;
   top: 10px;
