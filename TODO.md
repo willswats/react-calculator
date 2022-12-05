@@ -6,6 +6,6 @@
 
 ## Medium Priority
 
-- [ ] Add accesibility
+- [ ] Replace favicons
 
 ## Low Priority
