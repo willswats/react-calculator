@@ -25,7 +25,7 @@ I built this project to further familiarise myself with React hooks, such as `us
 ## Setup
 
 1. Run `npm install`.
-2. Run `npm start`.
+2. Run `npm run dev`.
 
 ## Acknowledgements
 
