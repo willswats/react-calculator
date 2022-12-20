@@ -24,8 +24,8 @@ I built this project to further familiarise myself with React hooks, such as `us
 
 ## Setup
 
-1. Run `pnpm install`.
-2. Run `pnpm dev`.
+1. Run `npm install`.
+2. Run `npm dev`.
 
 ## Acknowledgements
 
