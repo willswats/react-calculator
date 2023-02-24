@@ -1,13 +1,16 @@
-# React Calculator <!-- omit in toc -->
+# React Calculator
 
 A calculator application built with React.
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents
+
+<!--toc:start-->
 
 - [General Information](#general-information)
 - [Features](#features)
 - [Setup](#setup)
 - [Acknowledgements](#acknowledgements)
+<!--toc:end-->
 
 ## General Information
 
