@@ -33,5 +33,3 @@ I built this project to further familiarise myself with React hooks, such as `us
 ## Acknowledgements
 
 The SVG icon/s are from [Remix Icon](https://github.com/Remix-Design/remixicon).
-
-The architecture is inspired by [bulletproof-react](https://github.com/alan2207/bulletproof-react).
