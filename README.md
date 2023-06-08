@@ -1,6 +1,6 @@
 # React Calculator
 
-A calculator application built with React.
+A calculator application.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ A calculator application built with React.
 
 ## General Information
 
-I built this project to further familiarise myself with React hooks, such as `useState` and `useReducer`. Furthermore, I have learnt more about custom hooks; I created a custom hook for keyboard shortcuts.
+This project is built with React and it was created to further my understanding of React hooks.
 
 ## Features
 
