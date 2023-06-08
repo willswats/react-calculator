@@ -2,7 +2,7 @@
 
 A calculator application.
 
-[https://react-calculator-willswats.vercel.app/](https://react-calculator-willswats.vercel.app/)
+[react-calculator-willswats.vercel.app](https://react-calculator-willswats.vercel.app/)
 
 ## Table of Contents
 
