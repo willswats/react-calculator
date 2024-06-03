@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-import { ReactComponent as SvgGitHub } from 'assets/github-fill.svg';
+import SvgGitHub from 'assets/github-fill.svg?react';
 
 export const Footer = () => {
   return (
