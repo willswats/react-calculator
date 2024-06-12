@@ -6,15 +6,13 @@ export const Footer = () => {
   return (
     <footer className={styles['footer']}>
       <a
-        className={styles['link']}
         href="https://github.com/willswats/react-calculator"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <SvgGitHub className={styles['svg']} />
+        <SvgGitHub />
       </a>
       <a
-        className={styles['link']}
         href="https://williamwatson.dev"
         target="_blank"
         rel="noopener noreferrer"
