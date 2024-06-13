@@ -11,9 +11,7 @@ const App = () => {
       <div className="calculator-container">
         <Calculator />
       </div>
-      <div className="footer-container">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
