@@ -1,6 +1,6 @@
 # React Calculator
 
-A calculator application.
+A calculator application built with React.
 
 [react-calculator-willswats.vercel.app](https://react-calculator-willswats.vercel.app/)
 
