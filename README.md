@@ -2,8 +2,6 @@
 
 A calculator application built with React.
 
-[react-calculator-willswats.vercel.app](https://react-calculator-willswats.vercel.app/)
-
 ## Table of Contents
 
 <!--toc:start-->
